@@ -4,17 +4,18 @@
 		<div id="main">
 			<router-view></router-view>
 		</div>
-
+		<d-footer></d-footer>
 	</div>
 </template>
 
 <script>
 import DHeader from "@/components/header"
-
+import DFooter from '@/components/footer'
 export default {
   name: 'app',
   components: {
-    DHeader
+	DHeader,
+	DFooter
   }
 }
 </script>
