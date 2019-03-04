@@ -16,13 +16,13 @@
         </el-carousel>
         <div class="tabs">
             <el-tabs v-model="activeName" @tab-click="handleClick">
-                <el-tab-pane label="首页" name="first">首页</el-tab-pane>
-                <el-tab-pane label="招引新闻" name="second">招引新闻</el-tab-pane>
-                <el-tab-pane label="招商活动" name="third">招商活动</el-tab-pane>
-                <el-tab-pane label="招引服务" name="fourth">招引服务</el-tab-pane>
-                <el-tab-pane label="三圈动态" name="fourth">三圈动态</el-tab-pane>
-                <el-tab-pane label="党建工作" name="fourth">党建工作</el-tab-pane>
-                <el-tab-pane label="联系我们" name="fourth">联系我们</el-tab-pane>
+                <el-tab-pane label="首页" name="first"></el-tab-pane>
+                <el-tab-pane label="招引新闻" name="second"></el-tab-pane>
+                <el-tab-pane label="招商活动" name="third"></el-tab-pane>
+                <el-tab-pane label="招引服务" name="fourth"></el-tab-pane>
+                <el-tab-pane label="三圈动态" name="fourth"></el-tab-pane>
+                <el-tab-pane label="党建工作" name="fourth"></el-tab-pane>
+                <el-tab-pane label="联系我们" name="fourth"></el-tab-pane>
             </el-tabs>
         </div>
     </header>    
@@ -67,8 +67,13 @@
             margin: 0 auto;
             .el-tabs__item{
                 padding: 0 50px; 
+                line-height: 50px;
             }
             
+        }
+        .el-carousel__indicators--outside{
+            position: absolute;
+            bottom: 0;
         }
     }
 </style>
