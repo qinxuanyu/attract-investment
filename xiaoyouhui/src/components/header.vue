@@ -14,7 +14,11 @@
 <style lang="less" scoped>
     #header{
         .logo{
-            
+            >img{
+                width: 73px;
+                height: 73px;
+                border-radius: 20px;
+            }
         }
     }
 </style>
