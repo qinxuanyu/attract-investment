@@ -118,7 +118,6 @@
                     >ul{
                         >li{
                             p{
-
                                 span{
                                     float: right;
                                     color: #868686;
