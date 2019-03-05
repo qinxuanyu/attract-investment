@@ -1,0 +1,106 @@
+<template>
+  <div class="zw">
+    <div class="title">
+      <img src="../../assets/trumpet.png" alt="" class="float-left clearfix"> 2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!
+    </div>
+    <tab :yi="yi" :er="er" :san="san"></tab>
+
+    <h1 class="bt">商务部公布对原产于巴西的肌肉做了反叛财经阿萨斯多！！！</h1>
+    <div style="text-align: left;font-size: 13px;">
+      <span>发布时间 : 2019-2-3 09:03</span>
+      <span class="zy">文章来源 : 中华人民共和国商务部</span>
+    </div>
+    <p>阿姨说，那么有钱有什么用，人呢？人在哪里阿姨说，我们这辈子能花多少钱？不要买什么奢侈品，过得幸福就好阿姨说，不要唬小孩“妈妈不要你”，不要生气地时候把小孩推出门，如果他真的不见了，你会很痛苦。　阿姨说，不要打小孩，更不要在外面打。　阿姨说，打打杀杀的爱很刺激，也很浪漫。但是，不现实。普通就好阿姨说，什么都是缘分　阿姨说，生命无常，要好好珍惜每一天，珍惜自己的家庭。阿姨说，她.....</p>
+
+    <p>阿姨说，那么有钱有什么用，人呢？人在哪里阿姨说，我们这辈子能花多少钱？不要买什么奢侈品，过得幸福就好阿姨说，不要唬小孩“妈妈不要你”，不要生气地时候把小孩推出门，如果他真的不见了，你会很痛苦。　阿姨说，不要打小孩，更不要在外面打。　阿姨说，打打杀杀的爱很刺激，也很浪漫。但是，不现实。普通就好阿姨说，什么都是缘分　阿姨说，生命无常，要好好珍惜每一天，珍惜自己的家庭。阿姨说，她年轻的时候，她外婆总是教她怎么做好一个女人。她和她老公在一起十多年。她说，他都小心翼翼带回来，拗一半给她吃。她说，她年轻的时候不懂得好，觉得叔叔本就应该这样.....</p>
+
+    <p>阿姨说，那么有钱有什么用，人呢？人在哪里阿姨说，我们这辈子能花多少钱？不要买什么奢侈品，过得幸福就好阿姨说，不要唬小孩“妈妈不要你”，不要生气地时候把小孩推出门，如果他真的不见了，你会很痛苦。　阿姨说，不要打小孩，更不要在外面打。　阿姨说，打打杀杀的爱很刺激，也很浪漫。但是，不现实。普通就好阿姨说，什么都是缘分　阿姨说，生命无常，要好好珍惜每一天，珍惜自己的家庭。阿姨说，她年轻的时候，她外婆总是教她怎么做好一个女人。她和她老公在一起十多年。她说，他都小心翼翼带回来，拗一半给她吃。她说，她年轻的时候不懂得好，觉得叔叔本就应该这样.....</p>
+
+    <p>阿姨说，那么有钱有什么用，人呢？人在哪里阿姨说，我们这辈子能花多少钱？不要买什么奢侈品，过得幸福就好阿姨说，不要唬小孩“妈妈不要你”，不要生气地时候把小孩推出门，如果他真的不见了，你会很痛苦。　阿姨说，不要打小孩，更不要在外面打。　阿姨说，打打杀杀的爱很刺激，也很浪漫。但是，不现实。普通就好阿姨说，什么都是缘分　阿姨说，生命无常，要好好珍惜每一天，珍惜自己的家庭。阿姨说，她年轻的时候，她外婆总是教她怎么做好一个女人。她和她老公在一起十多年。她说，他都小心翼翼带回来，拗一半给她吃。她说，她年轻的时候不懂得好，觉得叔叔本就应该这样.....</p>
+  </div>
+</template>
+<script>
+  import tab from '../../components/table.vue'
+  export default {
+
+    components: {
+      tab
+    },
+    data() {
+      return {
+        yi: '首页',
+        er: '新闻',
+        san: '习近平访美'
+      }
+    },
+    methods: {
+
+    },
+    computed: {
+
+    }
+  }
+
+</script>
+<style scoped>
+  .zw{
+       margin-bottom: 80px;
+  }
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    content: ' ';
+    display: table;
+  }
+
+  .clearfix:after {
+    clear: both;
+  }
+
+  .float-left {
+    float: left;
+    margin-right: 45px;
+  }
+
+  .title {
+    width: 900px;
+    height: 50px;
+    margin: auto;
+    background-color: #FCEAEA;
+    border-radius: 25px;
+    display: flex;
+    line-height: 50px;
+    font-size: 19px;
+    margin-bottom: 22px;
+  }
+
+  .bt {
+    text-align: left;
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: normal;
+  }
+
+  .zy {
+    padding-left: 35px;
+  }
+
+  span {
+    color: #575757
+  }
+
+  p {
+    line-height: 33px;
+    text-indent: 30px;
+    margin-top: 12px !important;
+    color: #555555;
+        text-align: left;
+  }
+
+
+</style>

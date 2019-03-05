@@ -16,13 +16,13 @@
     </el-carousel>
     <div class="tabs">
       <el-tabs v-model="activeName" @tab-click="handleClick">
-         <el-tab-pane label="首页" name="first"></el-tab-pane>
-       <el-tab-pane label="招引新闻" name="second"></el-tab-pane>
+        <el-tab-pane label="首页" name="first"></el-tab-pane>
+        <el-tab-pane label="招引新闻" name="second"></el-tab-pane>
         <el-tab-pane label="招商活动" name="third"></el-tab-pane>
         <el-tab-pane label="招引服务" name="fourth"></el-tab-pane>
-        <el-tab-pane label="三圈动态" name="fourth"></el-tab-pane>
-        <el-tab-pane label="党建工作" name="fourth"></el-tab-pane>
-        <el-tab-pane label="联系我们" name="fourth"></el-tab-pane>
+        <el-tab-pane label="三圈动态" name="five"></el-tab-pane>
+        <el-tab-pane label="党建工作" name="six"></el-tab-pane>
+        <el-tab-pane label="联系我们" name="seven"></el-tab-pane>
       </el-tabs>
     </div>
   </header>
@@ -36,12 +36,14 @@
     },
     methods: {
       handleClick(tab) {
-       if(tab.name=='first'){
-         this.$router.push('/')
-       }else if(tab.name=='third'){
-         this.$router.push('/hd')
-       }
-        
+        if (tab.name == 'first') {
+          this.$router.push('/')
+        } else if (tab.name == 'third') {
+          this.$router.push('/hd')
+        } else if (tab.name == 'six') {
+          this.$router.push('/dj')
+        }
+
       }
     },
   }

@@ -15,16 +15,9 @@
             <span class="span1">招引新闻</span>
             <span class="span2">更多</span>
           </div>
-          <div class="p gg">驾驶的烦恼啊大大群发萨达所大所大所多动奥术大师大所多,机是的分公司的过分发给</div>
-          <div class="p g">驾驶的烦恼啊As的大大缩短都是发鬼地方个大概a阿斯达四大大范甘迪郭德纲沃尔沃若翁人徐晓晨</div>
-          <div class="p">驾驶的烦恼啊大大群发萨给</div>
-          <div class="p">驾驶的烦恼师大所多,机是的分公司的过分发给</div>
-          <div class="p">驾驶的烦恼啊大大群发萨给</div>
-          <div class="p">驾驶的烦恼师大所多,机是的分公司的过分发给</div>
-          <div class="p">驾驶的烦恼啊大大群发萨给</div>
-          <div class="p">驾驶的烦恼师大所多,机是的分公司的过分发给</div>
-          <div class="p">驾驶的烦恼啊大大群发萨给</div>
-          <div class="p">驾驶的烦恼师大所多,机是的分公司的过分发给</div>
+          <div class="p" v-for="(item, index) in 11" :key="index">
+            <router-link to="/zyxw"> 驾驶的烦恼啊大大群发萨达所大所 </router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -37,30 +30,13 @@
           <span class="span2">更多</span>
         </div>
         <div class="flex">
-          <div class="lm">
+          <div class="lm" v-for="(item, index) in 6" :key="index">
             <img src="../../assets/activity1.png" alt="">
-            <h3 class="h3">首届阿联酋(2019)中国品牌博览会</h3>
+            <h3 class="h3">
+              <router-link to="/zshd">首届阿联酋(2019)中国品牌博览会</router-link>
+            </h3>
           </div>
-          <div class="lm">
-            <img src="../../assets/activity1.png" alt="">
-            <h3 class="h3">首届阿联酋(2019)中国品牌博览会</h3>
-          </div>
-          <div class="lm">
-            <img src="../../assets/activity1.png" alt="">
-            <h3 class="h3">首届阿联酋(2019)中国品牌博览会</h3>
-          </div>
-          <div class="lm">
-            <img src="../../assets/activity1.png" alt="">
-            <h3 class="h3">首届阿联酋(2019)中国品牌博览会</h3>
-          </div>
-          <div class="lm">
-            <img src="../../assets/activity1.png" alt="">
-            <h3 class="h3">首届阿联酋(2019)中国品牌博览会</h3>
-          </div>
-          <div class="lm">
-            <img src="../../assets/activity1.png" alt="">
-            <h3 class="h3">首届阿联酋(2019)中国品牌博览会</h3>
-          </div>
+
 
         </div>
       </div>
@@ -70,15 +46,10 @@
             <span class="span1" style="color:#001F84">招引服务</span>
             <span class="span2">更多</span>
           </div>
-          <div class="p gg">驾驶的烦恼啊大大群发萨给</div>
-          <div class="p">驾驶的烦恼师大所多,机是的分公司的过分发给</div>
-          <div class="p">驾驶的烦恼啊大大群发萨给</div>
-          <div class="p">驾驶的烦恼啊大大群发萨给</div>
-          <div class="p">驾驶的烦恼师大所多,机是的分公司的过分发给</div>
-          <div class="p">驾驶的烦恼啊大大群发萨给</div>
-          <div class="p">驾驶的烦恼啊大大群发萨给</div>
-          <div class="p">驾驶的烦恼师大所多,机是的分公司的过分发给</div>
-          <div class="p">驾驶的烦恼啊大大群发萨给</div>
+          <div class="p" v-for="(item, index) in 8" :key="index">
+            <router-link to="/zyxw">驾驶的烦恼啊大大群发萨给</router-link>
+          </div>
+
         </div>
       </div>
 
@@ -93,33 +64,18 @@
         <div class="flex">
           <div class="zf">
             <h3 style="text-align: left;padding-bottom: 5px;">商务局2019年建党工作要点</h3>
-            <span class="span">事务局关于开展'党建模范建设'</span>
-            <span class="span">事务局关于开展'党建模范建设'</span>
-            <span class="span">事务局关于开展'党建模范建设'</span>
-            <span class="span">事务局关于开展'党建模范建设'</span>
-            <span class="span">事务局关于开展'党建模范建设'</span>
-            <span class="span">事务局关于开展'党建模范建设'</span>
-            <span class="span">事务局关于开展'党建模范建设'</span>
+            <span class="span" v-for="(item, index) in 7" :key="index">
+              <router-link to="/zshd">事务局关于开展'党建模范建设'</router-link>
+              </span>
+
           </div>
           <div class="yf">
-            <div class="lm">
+            <div class="lm" v-for="(item, index) in 4" :key="index">
               <img src="../../assets/activity1.png" alt="">
-              <h3 class="h3">首届阿联酋(2019)中国品牌博览会</h3>
+              <h3 class="h3">
+                <router-link to="path">首届阿联酋(2019)中国品牌博览会</router-link>
+              </h3>
             </div>
-            <div class="lm">
-              <img src="../../assets/activity1.png" alt="">
-              <h3 class="h3">首届阿联酋(2019)中国品牌博览会</h3>
-            </div>
-            <div class="lm">
-              <img src="../../assets/activity1.png" alt="">
-              <h3 class="h3">首届阿联酋(2019)中国品牌博览会</h3>
-            </div>
-
-            <div class="lm">
-              <img src="../../assets/activity1.png" alt="">
-              <h3 class="h3">首届阿联酋(2019)中国品牌博览会</h3>
-            </div>
-
           </div>
         </div>
       </div>
@@ -129,15 +85,10 @@
             <span class="span1" style="color:#001F84">三圈动态</span>
             <span class="span2">更多</span>
           </div>
-          <div class="p gg">驾驶的烦恼啊大大群发萨给</div>
-          <div class="p">驾驶的烦恼师大所多,机是的分公司的过分发给</div>
-          <div class="p">驾驶的烦恼啊大大群发萨给</div>
-          <div class="p">驾驶的烦恼啊大大群发萨给</div>
-          <div class="p">驾驶的烦恼师大所多,机是的分公司的过分发给</div>
-          <div class="p">驾驶的烦恼啊大大群发萨给</div>
-          <div class="p">驾驶的烦恼啊大大群发萨给</div>
-          <div class="p">驾驶的烦恼师大所多,机是的分公司的过分发给</div>
-          <div class="p">驾驶的烦恼啊大大群发萨给</div>
+          <div class="p" v-for="(item, index) in 9" :key="index">
+            <router-link to="/zshd">驾驶的烦恼啊大大群发萨给</router-link>
+          </div>
+
         </div>
       </div>
 
@@ -162,7 +113,7 @@
     methods: {
       jing(index) {
         this.curr = index
-        this.ss=index
+        this.ss = index
         this.currimg = this.imglist[index]
         this.dh = true
         setTimeout(() => {
@@ -173,7 +124,7 @@
     computed: {
       wz() {
         let ss = ''
-        ss=this.xinwen[this.ss]
+        ss = this.xinwen[this.ss]
         return ss
       }
     }
@@ -298,10 +249,6 @@
     margin: 10px 0;
   }
 
-  .g {
-    font-size: 15px;
-    color: #919191;
-  }
 
   .xia {
     display: flex;
@@ -349,10 +296,6 @@
     font-weight: normal;
   }
 
-  .gg {
-    margin: 20px 0 10px 0;
-  }
-
   .yy {
     padding: 0 29px;
     text-align: left;
@@ -365,16 +308,6 @@
 
   .yf {
     flex: 2;
-  }
-
-  .span {
-    display: block;
-    text-align: left;
-    padding: 11px 0;
-    color: #808080;
-  }
-
-  .yf {
     display: flex;
     flex-wrap: wrap;
     padding-left: 20px;
@@ -388,6 +321,16 @@
   .flex .yf .lm:nth-child(2n) {
     text-align: right;
   }
+
+  .span {
+    display: block;
+    text-align: left;
+    padding: 11px 0;
+    color: #808080;
+  }
+
+
+
 
   .hh {
     margin: 20px 0 60px 0;
@@ -406,6 +349,25 @@
     font-size: 20px;
     text-indent: 10px;
     z-index: 999;
+  }
+
+  .li .p:nth-child(2) {
+    margin: 20px 0 10px 0;
+  }
+
+  .li .p:nth-child(3) a {
+    font-size: 15px;
+    color: #919191;
+  }
+  .yy .p:nth-child(2){
+   margin-top: 20px;
+  }
+  a {
+    color: #2D2D2D;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 
 </style>

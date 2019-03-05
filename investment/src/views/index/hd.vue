@@ -19,7 +19,12 @@
     <div class="zhong">
       <div class="zz">
         <div class="zz1">
-          <h3 class="h3" style="font-size:16px" v-for="i in 10">2019北京国际数字经济博览会</h3>
+          <div class="zz11">
+            <h3 class="h3" style="font-size:16px" v-for="i in 5">2019北京国际数字经济博览会</h3>
+          </div>
+          <div class="zz11">
+            <h3 class="h3" style="font-size:16px" v-for="i in 5">2019北京国际数字经济博览会</h3>
+          </div>
         </div>
         <div class="zz2">
           <img src="../../assets/2e0ba8589ac29b8d0d34d3075858841.png" alt="">
@@ -28,7 +33,12 @@
       </div>
       <div class="yy">
         <div class="zz1">
-          <h3 class="h3" style="font-size:16px" v-for="i in 10">2019北京国际数字经济博览会</h3>
+          <div class="zz11">
+            <h3 class="h3" style="font-size:16px" v-for="i in 5">2019北京国际数字经济博览会</h3>
+          </div>
+          <div class="zz11">
+            <h3 class="h3" style="font-size:16px" v-for="i in 5">2019北京国际数字经济博览会</h3>
+          </div>
         </div>
         <div class="zz2">
           <img src="../../assets/2e0ba8589ac29b8d0d34d3075858841.png" alt="">
@@ -37,37 +47,44 @@
       </div>
     </div>
 
-  <h2 class="h2">实地考察</h2>
+    <h2 class="h2">实地考察</h2>
 
 
     <div class="zhong">
       <div class="zz">
 
-  <div class="zz2">
+        <div class="zz2">
           <img src="../../assets/2e0ba8589ac29b8d0d34d3075858841.png" alt="">
           <img src="../../assets/2e0ba8589ac29b8d0d34d3075858841.png" style="margin-top: 20px;" alt="">
         </div>
 
         <div class="zz1">
-          <h3 class="h3" style="font-size:16px" v-for="i in 10">2019北京国际数字经济博览会</h3>
+          <div class="zz11">
+            <h3 class="h3" style="font-size:16px" v-for="i in 5">2019北京国际数字经济博览会</h3>
+          </div>
+          <div class="zz11">
+            <h3 class="h3" style="font-size:16px" v-for="i in 5">2019北京国际数字经济博览会</h3>
+          </div>
         </div>
-      
       </div>
       <div class="yy">
 
-     <div class="zz2">
+        <div class="zz2">
           <img src="../../assets/2e0ba8589ac29b8d0d34d3075858841.png" alt="">
           <img src="../../assets/2e0ba8589ac29b8d0d34d3075858841.png" style="margin-top: 20px;" alt="">
         </div>
-
         <div class="zz1">
-          <h3 class="h3" style="font-size:16px" v-for="i in 10">2019北京国际数字经济博览会</h3>
+          <div class="zz11">
+            <h3 class="h3" style="font-size:16px" v-for="i in 5">2019北京国际数字经济博览会</h3>
+          </div>
+          <div class="zz11">
+            <h3 class="h3" style="font-size:16px" v-for="i in 5">2019北京国际数字经济博览会</h3>
+          </div>
         </div>
-   
       </div>
     </div>
 
-<div class="kong" style="height: 80px;"></div>
+    <div class="kong" style="height: 80px;"></div>
   </div>
 </template>
 <script>
@@ -175,6 +192,8 @@
 
   .zz1 {
     flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   .zz2 {
@@ -183,8 +202,12 @@
 
   }
 
-  .zz1 .h3:nth-child(1) {
+  .zz11 .h3:nth-child(1) {
     margin-top: 0;
+  }
+
+  .zz11 {
+    flex: 1;
   }
 
 </style>
