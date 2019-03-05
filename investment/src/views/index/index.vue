@@ -4,6 +4,7 @@
       <img src="../../assets/trumpet.png" alt="" class="float-left clearfix"> 2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!
     </div>
     <div class="zhong">
+      <div class="dw">{{wz}}</div>
       <img :src="currimg" alt="" class="yi" :class="{'active':dh}">
       <div class="er">
         <img :src="item" alt="" :class="{'active':index==curr}" v-for="(item, index) in imglist" :key="index" class="potor" @mouseenter="jing(index)">
@@ -153,17 +154,27 @@
           '../../assets/activity4.png'), require('../../assets/activity2.png'), ],
         curr: 0,
         currimg: require('../../assets/activity4.png'),
-        dh: false
+        dh: false,
+        xinwen: ['阿斯顿撒所大所多', '特瑞特瑞特瑞特惹我', '阿斯达四大所大所多', '阿斯达四大大多所'],
+        ss: 0
       }
     },
     methods: {
       jing(index) {
         this.curr = index
+        this.ss=index
         this.currimg = this.imglist[index]
         this.dh = true
         setTimeout(() => {
           this.dh = false
         }, 200);
+      }
+    },
+    computed: {
+      wz() {
+        let ss = ''
+        ss=this.xinwen[this.ss]
+        return ss
       }
     }
 
@@ -208,6 +219,9 @@
     height: 490px;
     display: flex;
     margin-bottom: 35px;
+    position: relative;
+    left: 0;
+    top: 0;
   }
 
   .yi {
@@ -374,7 +388,24 @@
   .flex .yf .lm:nth-child(2n) {
     text-align: right;
   }
-.hh{
-      margin: 20px 0 60px 0;
-}
+
+  .hh {
+    margin: 20px 0 60px 0;
+  }
+
+  .dw {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #C81207;
+    width: 396px;
+    color: white;
+    height: 36px;
+    text-align: left;
+    line-height: 36px;
+    font-size: 20px;
+    text-indent: 10px;
+    z-index: 999;
+  }
+
 </style>
