@@ -20,9 +20,9 @@
                 <el-tab-pane label="招引新闻" name="second"></el-tab-pane>
                 <el-tab-pane label="招商活动" name="third"></el-tab-pane>
                 <el-tab-pane label="招引服务" name="fourth"></el-tab-pane>
-                <el-tab-pane label="三圈动态" name="fourth"></el-tab-pane>
-                <el-tab-pane label="党建工作" name="fourth"></el-tab-pane>
-                <el-tab-pane label="联系我们" name="fourth"></el-tab-pane>
+                <el-tab-pane label="三圈动态" name="fourt"></el-tab-pane>
+                <el-tab-pane label="党建工作" name="four"></el-tab-pane>
+                <el-tab-pane label="联系我们" name="fourh"></el-tab-pane>
             </el-tabs>
         </div>
     </header>    
@@ -31,7 +31,13 @@
     export default {
         data(){
             return{
-                bannerItem:['../assets/banner1.png','../assets/banner2.png','../assets/banner3.png']
+                bannerItem:['../assets/banner1.png','../assets/banner2.png','../assets/banner3.png'],
+                activeName:0
+            }
+        },
+        methods:{
+            handleClick(){
+
             }
         }
     }
@@ -67,7 +73,8 @@
             margin: 0 auto;
             .el-tabs__item{
                 padding: 0 50px; 
-                line-height: 50px;
+                // line-height: 50px;
+                margin: 4px 0;
             }
             
         }
