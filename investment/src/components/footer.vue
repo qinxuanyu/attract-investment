@@ -81,6 +81,7 @@
             .info{
                 margin-top: 48px;
                 font-size: 16px;
+                color: #fff;
             }
         }
      
