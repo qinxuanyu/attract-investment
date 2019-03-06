@@ -31,7 +31,8 @@
   export default {
     data() {
       return {
-        bannerItem: ['../assets/banner1.png', '../assets/banner2.png', '../assets/banner3.png']
+        bannerItem: ['../assets/banner1.png', '../assets/banner2.png', '../assets/banner3.png'],
+        activeName:'first'
       }
     },
     methods: {

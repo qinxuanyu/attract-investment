@@ -7,7 +7,9 @@
       <div class="dw">{{wz}}</div>
       <img :src="currimg" alt="" class="yi" :class="{'active':dh}">
       <div class="er">
-        <img :src="item" alt="" :class="{'active':index==curr}" v-for="(item, index) in imglist" :key="index" class="potor" @mouseenter="jing(index)">
+ 
+        <img v-lazy="item" alt="" :class="{'active':index==curr}" v-for="(item, index) in imglist" :key="index" class="potor" @mouseenter="jing(index)">
+      
       </div>
       <div class="san">
         <div class="li">
