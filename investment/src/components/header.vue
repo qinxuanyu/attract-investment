@@ -43,6 +43,8 @@
           this.$router.push('/hd')
         } else if (tab.name == 'six') {
           this.$router.push('/dj')
+        }else if(tab.name=='fourth'){
+          this.$router.push('/serve')
         }
 
       }

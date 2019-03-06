@@ -4,7 +4,9 @@
             <div class="red">
                 <div class="title">
                     <span class="name">深圳产业园区招商</span>
-                    <span class="btn">更多</span>
+                    <span class="btn">
+                      <router-link to="/zyfu-zs">更多</router-link>
+                      </span>
                 </div>
                 <div class="main">
                     <ul>
