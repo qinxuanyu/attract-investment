@@ -42,6 +42,7 @@
 <style lang="less" scoped>
     #footer{
         background-color: #00238c;
+        margin-top: 98px;
         .wrap{
             width: 1200px;
             margin: 0 auto;

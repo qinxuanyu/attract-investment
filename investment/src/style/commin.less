@@ -11,3 +11,33 @@ button {
 ul, ol, dl,li {
     list-style: none;
 }
+a{
+    text-decoration: none;
+}
+.clearfix{
+    display:inline-block;
+}
+.clearfix:after{
+    display:black;
+    content:'.';
+    height:0;
+    line-height:0;
+    clear:both;
+    visibility:hidden;
+}
+// 修改element样式
+.el-pagination{
+    padding: 85px 0 73px 0 !important;
+    
+}
+.el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li{
+    width: 37px;
+    height: 37px;
+    line-height: 37px;
+}
+.el-pagination.is-background .el-pager li:not(.disabled).active{
+    background-color: #c81207;
+}
+.el-breadcrumb{
+    margin: 25px 0 35px 0;
+}

@@ -5,38 +5,38 @@
 let tool = {};
 
 // SESSION & LOCAL
-// ['session', 'local'].forEach(type => {
-//     let v = window[type + 'Storage'];
-//     let obj = {
-//         get(key) {
-//             return v.getItem(key);
-//         },
-//         set(key, value) {
-//             v.setItem(key, value);
-//         },
-//         clear(key) {
-//             /**
-//              * 清空所有缓存，或单个，或批量删除
-//              * @param key NULL|String|Array
-//              * */
-//             if (tool.utils.isEmpty(key)) {
-//                 v.clear();
-//             } else {
-//                 if (tool.utils.isString(key)) {
-//                     key = key.split(',');
-//                 }
-//                 if (tool.utils.isArray(key)) {
-//                     key.forEach(item => {
-//                         item = tool.utils.trim(item);
-//                         item && v.removeItem(item);
-//                     });
-//                 }
-//             }
-//         }
-//     };
+['session', 'local'].forEach(type => {
+    let v = window[type + 'Storage'];
+    let obj = {
+        get(key) {
+            return v.getItem(key);
+        },
+        set(key, value) {
+            v.setItem(key, value);
+        },
+        clear(key) {
+            /**
+             * 清空所有缓存，或单个，或批量删除
+             * @param key NULL|String|Array
+             * */
+            if (tool.utils.isEmpty(key)) {
+                v.clear();
+            } else {
+                if (tool.utils.isString(key)) {
+                    key = key.split(',');
+                }
+                if (tool.utils.isArray(key)) {
+                    key.forEach(item => {
+                        item = tool.utils.trim(item);
+                        item && v.removeItem(item);
+                    });
+                }
+            }
+        }
+    };
 
-//     tool[type] = obj;
-// });
+    tool[type] = obj;
+});
 
 //工具
 tool.utils = (() => {
