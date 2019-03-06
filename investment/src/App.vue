@@ -42,7 +42,17 @@
       margin: 0;
       padding: 0;
     }
-
+    .img-box-d{
+      position: relative;
+      overflow: hidden;
+      >img{
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%)
+      }
+    }
   }
 
 </style>

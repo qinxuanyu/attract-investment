@@ -15,8 +15,13 @@ export default [
         component: () => import( '@/views/serve/index.vue')
     },
     {
-        path: '/serve_info',
+        path: '/serve_info',     
         name: 'serveInfo',
         component: () => import( '@/views/serve/info.vue')
+    },
+    {
+        path: '/garden',  //园区详情
+        name: 'garden',
+        component: () => import( '@/views/serve/garden.vue')
     },
 ]
