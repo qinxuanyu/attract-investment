@@ -1,8 +1,8 @@
 <template>
   <div class="zw">
-    <div class="title">
-      <img src="../../assets/trumpet.png" alt="" class="float-left clearfix"> 2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!
-    </div>
+
+  <tit :title="title"></tit>
+
     <tab :yi="yi" :er="er" :san="san"></tab>
 
     <h1 class="bt">商务部公布对原产于巴西的肌肉做了反叛财经阿萨斯多！！！</h1>
@@ -21,16 +21,19 @@
 </template>
 <script>
   import tab from '../../components/table.vue'
+    import tit from '../../components/title.vue'
   export default {
 
     components: {
-      tab
+      tab,
+      tit
     },
     data() {
       return {
         yi: '首页',
         er: '新闻',
-        san: '习近平访美'
+        san: '习近平访美',
+          title:'2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!'
       }
     },
     methods: {
@@ -45,38 +48,6 @@
 <style scoped>
   .zw{
        margin-bottom: 80px;
-  }
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-
-  .clearfix:before,
-  .clearfix:after {
-    content: ' ';
-    display: table;
-  }
-
-  .clearfix:after {
-    clear: both;
-  }
-
-  .float-left {
-    float: left;
-    margin-right: 45px;
-  }
-
-  .title {
-    width: 900px;
-    height: 50px;
-    margin: auto;
-    background-color: #FCEAEA;
-    border-radius: 25px;
-    display: flex;
-    line-height: 50px;
-    font-size: 19px;
-    margin-bottom: 22px;
   }
 
   .bt {

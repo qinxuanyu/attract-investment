@@ -1,15 +1,15 @@
 <template>
   <div>
-    <div class="title">
-      <img src="../../assets/trumpet.png" alt="" class="float-left clearfix"> 2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!
-    </div>
+
+    <tit :title="title"></tit>
+
     <div class="zhong">
       <div class="dw">{{wz}}</div>
       <img :src="currimg" alt="" class="yi" :class="{'active':dh}">
       <div class="er">
- 
+
         <img v-lazy="item" alt="" :class="{'active':index==curr}" v-for="(item, index) in imglist" :key="index" class="potor" @mouseenter="jing(index)">
-      
+
       </div>
       <div class="san">
         <div class="li">
@@ -99,8 +99,11 @@
   </div>
 </template>
 <script>
+  import tit from '../../components/title.vue'
   export default {
-
+    components: {
+      tit
+    },
     data() {
       return {
         imglist: [require('../../assets/activity2.png'), require('../../assets/activity3.png'), require(
@@ -109,7 +112,8 @@
         currimg: require('../../assets/activity4.png'),
         dh: false,
         xinwen: ['阿斯顿撒所大所多', '特瑞特瑞特瑞特惹我', '阿斯达四大所大所多', '阿斯达四大大多所'],
-        ss: 0
+        ss: 0,
+        title: '2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!'
       }
     },
     methods: {
@@ -141,32 +145,6 @@
     box-sizing: border-box;
   }
 
-  .clearfix:before,
-  .clearfix:after {
-    content: ' ';
-    display: table;
-  }
-
-  .clearfix:after {
-    clear: both;
-  }
-
-  .float-left {
-    float: left;
-    margin-right: 45px;
-  }
-
-  .title {
-    width: 900px;
-    height: 50px;
-    margin: auto;
-    background-color: #FCEAEA;
-    border-radius: 25px;
-    display: flex;
-    line-height: 50px;
-    font-size: 19px;
-    margin-bottom: 22px;
-  }
 
   .zhong {
     height: 490px;
@@ -361,9 +339,11 @@
     font-size: 15px;
     color: #919191;
   }
-  .yy .p:nth-child(2){
-   margin-top: 20px;
+
+  .yy .p:nth-child(2) {
+    margin-top: 20px;
   }
+
   a {
     color: #2D2D2D;
   }

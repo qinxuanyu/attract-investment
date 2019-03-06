@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="title">
-      <img src="../../assets/trumpet.png" alt="" class="float-left clearfix"> 2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!
-    </div>
+    
+   <tit :title="title"></tit>
+
     <div class="zhong">
       <div class="dw">{{wz}}</div>
       <img :src="currimg" alt="" class="yi" :class="{'active':dh}">
@@ -64,8 +64,11 @@
   </div>
 </template>
 <script>
+    import tit from '../../components/title.vue'
   export default {
-
+   components:{
+      tit
+   },
     data() {
       return {
         imglist: [require('../../assets/activity2.png'), require('../../assets/activity3.png'), require(
@@ -74,7 +77,8 @@
         currimg: require('../../assets/activity4.png'),
         dh: false,
         xinwen: ['阿斯顿撒所大所多', '特瑞特瑞特瑞特惹我', '阿斯达四大所大所多', '阿斯达四大大多所'],
-        ss: 0
+        ss: 0,
+          title: '2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!'
       }
     },
     methods: {
