@@ -1,7 +1,7 @@
 <template>
   <div class="zw">
 
-    <tab :yi="yi" :er="er" :san="san"></tab>
+    <tab :yi="yi" :er="er"></tab>
     <h1 class="bt">商务部公布对原产于巴西的肌肉做了反叛财经阿萨斯多！！！</h1>
     <div style="text-align: left;font-size: 13px;">
       <span>发布时间 : 2019-2-3 09:03</span>
@@ -27,8 +27,7 @@
       return {
         yi: '首页',
         er: '新闻',
-        san: '习近平访美',
-          title:'2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!'
+        title: '2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!'
       }
     },
     methods: {
@@ -41,8 +40,8 @@
 
 </script>
 <style scoped>
-  .zw{
-       margin-bottom: 80px;
+  .zw {
+    margin-bottom: 80px;
   }
 
   .bt {
@@ -65,8 +64,7 @@
     text-indent: 30px;
     margin-top: 12px !important;
     color: #555555;
-        text-align: left;
+    text-align: left;
   }
-
 
 </style>
