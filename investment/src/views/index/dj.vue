@@ -1,7 +1,6 @@
 <template>
   <div>
     
-   <tit :title="title"></tit>
 
     <div class="zhong">
       <div class="dw">{{wz}}</div>
@@ -64,10 +63,8 @@
   </div>
 </template>
 <script>
-    import tit from '../../components/title.vue'
   export default {
    components:{
-      tit
    },
     data() {
       return {
@@ -126,17 +123,7 @@
     margin-right: 45px;
   }
 
-  .title {
-    width: 900px;
-    height: 50px;
-    margin: auto;
-    background-color: #FCEAEA;
-    border-radius: 25px;
-    display: flex;
-    line-height: 50px;
-    font-size: 19px;
-    margin-bottom: 22px;
-  }
+
 
   .span1 {
     color: #012188;

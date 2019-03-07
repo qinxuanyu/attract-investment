@@ -24,4 +24,9 @@ export default [
         name: 'garden',
         component: () => import( '@/views/serve/garden.vue')
     },
+    {
+        path: '/about',  //联系我们
+        name: 'about',
+        component: () => import( '@/views/index/about.vue')
+    },
 ]

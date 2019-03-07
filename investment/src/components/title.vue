@@ -1,7 +1,7 @@
 <template>
 
-  <div class="title">
-    <img src="../assets/trumpet.png" alt="" class="float-left clearfix"> {{title}}
+  <div class="title-comp">
+    <img src="../assets/trumpet.png" alt="" class="float-left clearfix"> {{title || '2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!'}}
   </div>
 
 </template>
@@ -40,7 +40,7 @@
     margin-right: 45px;
   }
 
-  .title {
+  .title-comp {
     width: 900px;
     height: 50px;
     margin: auto;

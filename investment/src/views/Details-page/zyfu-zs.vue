@@ -1,6 +1,5 @@
 <template>
   <div class="zw">
-    <tit :title="title"></tit>
     <tab :yi="yi" :er="er"></tab>
     <div class="flex">
       <div class="tx" v-for="(item, index) in 8" :key="index">
@@ -35,12 +34,10 @@
 </template>
 <script>
   import tab from '../../components/table.vue'
-  import tit from '../../components/title.vue'
   export default {
 
     components: {
       tab,
-      tit
     },
     data() {
       return {

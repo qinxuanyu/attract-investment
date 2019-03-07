@@ -211,6 +211,7 @@
                         .img-box-d{
                             width: 270px;
                             height: 180px;
+                            margin-bottom: 20px;
                         }
                         li{
                             cursor: pointer;

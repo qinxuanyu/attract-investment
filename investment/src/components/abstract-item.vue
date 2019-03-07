@@ -19,6 +19,7 @@
     .abstract-item{
         padding: 24px 0;
         border-bottom: 2px solid #c2c2c2;
+        overflow: hidden;
         cursor: pointer;
         .title{
             font-size: 25px;

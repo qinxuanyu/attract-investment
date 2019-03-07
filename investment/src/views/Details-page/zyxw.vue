@@ -1,10 +1,7 @@
 <template>
   <div class="zw">
 
-  <tit :title="title"></tit>
-
     <tab :yi="yi" :er="er" :san="san"></tab>
-
     <h1 class="bt">商务部公布对原产于巴西的肌肉做了反叛财经阿萨斯多！！！</h1>
     <div style="text-align: left;font-size: 13px;">
       <span>发布时间 : 2019-2-3 09:03</span>
@@ -21,12 +18,10 @@
 </template>
 <script>
   import tab from '../../components/table.vue'
-    import tit from '../../components/title.vue'
   export default {
 
     components: {
       tab,
-      tit
     },
     data() {
       return {

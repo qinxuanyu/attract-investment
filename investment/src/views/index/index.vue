@@ -1,8 +1,5 @@
 <template>
   <div>
-
-    <tit :title="title"></tit>
-
     <div class="zhong">
       <div class="dw">{{wz}}</div>
       <img :src="currimg" alt="" class="yi" :class="{'active':dh}">
@@ -99,10 +96,8 @@
   </div>
 </template>
 <script>
-  import tit from '../../components/title.vue'
   export default {
     components: {
-      tit
     },
     data() {
       return {

@@ -38,10 +38,7 @@
       margin: 0 auto;
 
     }
-    p {
-      margin: 0;
-      padding: 0;
-    }
+    
     .img-box-d{
       position: relative;
       overflow: hidden;

@@ -17,7 +17,7 @@
     <div class="tabs">
       <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="首页" name="first"></el-tab-pane>
-        <el-tab-pane label="招引新闻" name="second"></el-tab-pane>
+        <el-tab-pane label="招引新闻" name="news"></el-tab-pane>
         <el-tab-pane label="招商活动" name="third"></el-tab-pane>
         <el-tab-pane label="招引服务" name="fourth"></el-tab-pane>
         <el-tab-pane label="三圈动态" name="five"></el-tab-pane>
@@ -25,31 +25,36 @@
         <el-tab-pane label="联系我们" name="seven"></el-tab-pane>
       </el-tabs>
     </div>
+	<d-title></d-title>
   </header>
 </template>
 <script>
-  export default {
-    data() {
-      return {
-        bannerItem: ['../assets/banner1.png', '../assets/banner2.png', '../assets/banner3.png'],
-        activeName:'first'
-      }
-    },
-    methods: {
-      handleClick(tab) {
-        if (tab.name == 'first') {
-          this.$router.push('/')
-        } else if (tab.name == 'third') {
-          this.$router.push('/hd')
-        } else if (tab.name == 'six') {
-          this.$router.push('/dj')
-        }else if(tab.name=='fourth'){
-          this.$router.push('/serve')
-        }
+	import DTitle from './title'
+	export default {
+		data() {
+			return {
+				bannerItem: ['../assets/banner1.png', '../assets/banner2.png', '../assets/banner3.png'],
+				activeName:'first'
+			}
+		},
+		components:{ DTitle },
+		methods: {
+		handleClick(tab) {
+			if (tab.name == 'first') {
+				this.$router.push('/')
+			} else if (tab.name == 'third') {
+				this.$router.push('/activity')
+			} else if (tab.name == 'six') {
+				this.$router.push('/dj')
+			}else if(tab.name=='fourth'){
+				this.$router.push('/serve')
+			}else if(tab.name === 'news'){
+				this.$router.push('/news')
+			}
 
-      }
-    },
-  }
+		}
+		},
+	}
 
 </script>
 <style lang="less">
