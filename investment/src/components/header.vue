@@ -20,7 +20,7 @@
         <el-tab-pane label="招引新闻" name="news"></el-tab-pane>
         <el-tab-pane label="招商活动" name="third"></el-tab-pane>
         <el-tab-pane label="招引服务" name="fourth"></el-tab-pane>
-        <el-tab-pane label="三圈动态" name="five"></el-tab-pane>
+        <el-tab-pane label="三圈动态" name="dynamic"></el-tab-pane>
         <el-tab-pane label="党建工作" name="six"></el-tab-pane>
         <el-tab-pane label="联系我们" name="seven"></el-tab-pane>
       </el-tabs>
@@ -50,6 +50,8 @@
 				this.$router.push('/serve')
 			}else if(tab.name === 'news'){
 				this.$router.push('/news')
+			}else if(tab.name === 'dynamic'){
+				this.$router.push('/dynamic')
 			}
 
 		}

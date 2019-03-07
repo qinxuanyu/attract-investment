@@ -29,4 +29,9 @@ export default [
         name: 'about',
         component: () => import( '@/views/index/about.vue')
     },
+    {
+        path: '/dynamic',  //三圈动态
+        name: 'dynamic',
+        component: () => import( '@/views/dynamic/index.vue')
+    },
 ]

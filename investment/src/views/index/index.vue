@@ -96,41 +96,52 @@
   </div>
 </template>
 <script>
-  export default {
-    components: {
-    },
-    data() {
-      return {
-        imglist: [require('../../assets/activity2.png'), require('../../assets/activity3.png'), require(
-          '../../assets/activity4.png'), require('../../assets/activity2.png'), ],
-        curr: 0,
-        currimg: require('../../assets/activity4.png'),
-        dh: false,
-        xinwen: ['阿斯顿撒所大所多', '特瑞特瑞特瑞特惹我', '阿斯达四大所大所多', '阿斯达四大大多所'],
-        ss: 0,
-        title: '2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!'
-      }
-    },
-    methods: {
-      jing(index) {
-        this.curr = index
-        this.ss = index
-        this.currimg = this.imglist[index]
-        this.dh = true
-        setTimeout(() => {
-          this.dh = false
-        }, 200);
-      }
-    },
-    computed: {
-      wz() {
-        let ss = ''
-        ss = this.xinwen[this.ss]
-        return ss
-      }
-    }
+	import api from '@/api'
+	export default {
+		components: {
+		},
+		data() {
+			return {
+				imglist: [require('../../assets/activity2.png'), require('../../assets/activity3.png'), require(
+				'../../assets/activity4.png'), require('../../assets/activity2.png'), ],
+				curr: 0,
+				currimg: require('../../assets/activity4.png'),
+				dh: false,
+				xinwen: ['阿斯顿撒所大所多', '特瑞特瑞特瑞特惹我', '阿斯达四大所大所多', '阿斯达四大大多所'],
+				ss: 0,
+				title: '2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!'
+			}
+		},
+		methods: {
+			jing(index) {
+				this.curr = index
+				this.ss = index
+				this.currimg = this.imglist[index]
+				this.dh = true
+				setTimeout(() => {
+				this.dh = false
+				}, 200);
+			},
+			getHomeData (){
+				api.homeAttractNews().then((result) => {
+					console.log(result)
+				}).catch((err) => {
+					
+				});
+			}
+		},
+		computed: {
+			wz() {
+				let ss = ''
+				ss = this.xinwen[this.ss]
+				return ss
+			}
+		},
+		created (){
+			this.getHomeData()
+		}
 
-  }
+	}
 
 </script>
 <style scoped>

@@ -29,7 +29,7 @@
             </ul>
             <div class="info">
                 <p>Copyright © 2016-2017 yhby.org. All Rights Reserved.</p>
-                <p>湘ICP备15019042号</p>
+                <p>粤ICP备19018225号</p>
             </div>
         </div>
     </footer>
