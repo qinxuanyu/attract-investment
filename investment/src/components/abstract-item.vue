@@ -1,17 +1,17 @@
 <template>
     <div class="abstract-item">
-        <h1 class="title">河南省商城县与市县招商网签署招商引资战略合作协议</h1>
+        <h1 class="title">{{title}}</h1>
         <p class="content">
             <span>摘要</span>
-            2018年12月21日上午，河南省商城县领导一行4人莅临中国市县招商网北京总部，洽淡招商引资深度
-合作事宜，并签订招商引资战略合作协议。
+            {{content}}
         </p>
     </div>
 </template>
 <script>
     export default {
         props:{
-            
+            title:String,
+            content:String
         }
     }
 </script>
