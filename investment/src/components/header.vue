@@ -7,13 +7,18 @@
         <p class="en">xiaoyouhuizhaoshangyinzifuwupingtai</p>
       </div>
     </div>
-    <el-carousel indicator-position="outside" height="600px">
-      <el-carousel-item v-for="(key,item) in bannerItem" :key="item">
-        <!-- <h3>{{ item }}</h3> -->
-        <!-- <img :src="'../assets/banner'+ key +'.png'" alt=""> -->
-        <img src="../assets/banner1.png" alt="">
-      </el-carousel-item>
-    </el-carousel>
+    <div class="carousel">
+      <el-carousel  indicator-position="outside"  height="600px">
+        <el-carousel-item v-for="(key,item) in bannerItem" :key="item">
+          <!-- <h3>{{ item }}</h3> -->
+          <!-- <img :src="'../assets/banner'+ key +'.png'" alt=""> -->
+          <div class="img-box-d">
+            <img src="../assets/banner1.png" alt="">
+          </div>
+        </el-carousel-item>
+      </el-carousel>
+    </div>
+    
     <div class="tabs">
       <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="首页" name="first"></el-tab-pane>
@@ -83,6 +88,18 @@
           font-size: 21px;
           color: #00238c;
         }
+      }
+    }
+    .carousel{
+      min-width: 1200px;
+      .img-box-d{
+        width: 100%;
+        min-width: 1200px;
+        height: 600px;
+      }
+      
+      .el-carousel__container{
+        // width: 1200px;
       }
     }
     .tabs {
