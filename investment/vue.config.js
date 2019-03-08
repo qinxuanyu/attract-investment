@@ -11,14 +11,12 @@ module.exports = {
 
     proxy: {
 
-      '/': {
+      '/invite_business_api': {
         target: 'http://47.105.108.139/invite_business_api',
         changeOrigin: true,
-        ws: false,
-        pathRewrite: {
-          '^/': ''
+        pathRewrite:{
+          '^/invite_business_api': ''
         }
-
       }
     }
   }
