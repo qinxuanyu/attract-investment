@@ -8,9 +8,15 @@ module.exports = {
   parallel: undefined,
   css: undefined,
   devServer: {
+
     proxy: {
       '/': {
-        target: 'http://47.105.108.139/invite_business_api'
+        target: 'http://47.105.108.139/invite_business_api',
+        changeOrigin: true,
+         ws: false,
+         pathRewrite:{
+           '^/':''
+         }
       }
     }
   }

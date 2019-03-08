@@ -43,19 +43,19 @@
       <div class="ffy">
         <div class="lm">
           <img src="../../assets/activity1.png" alt="">
-          <h3 class="h3">首届阿联酋(2019)中国品牌博览会</h3>
+          <h3 class="h5">首届阿联酋(2019)中国品牌博览会</h3>
         </div>
         <div class="lm">
           <img src="../../assets/activity1.png" alt="">
-          <h3 class="h3">首届阿联酋(2019)中国品牌博览会</h3>
+          <h3 class="h5">首届阿联酋(2019)中国品牌博览会</h3>
         </div>
         <div class="lm">
           <img src="../../assets/activity1.png" alt="">
-          <h3 class="h3">首届阿联酋(2019)中国品牌博览会</h3>
+          <h3 class="h5">首届阿联酋(2019)中国品牌博览会</h3>
         </div>
         <div class="lm">
           <img src="../../assets/activity1.png" alt="">
-          <h3 class="h3">首届阿联酋(2019)中国品牌博览会</h3>
+          <h3 class="h5">首届阿联酋(2019)中国品牌博览会</h3>
         </div>
       </div>
     </div>
@@ -170,7 +170,7 @@
     text-align: right;
   }
 
-  .h3 {
+  .h5 {
     font-size: 15px;
     padding: 8px 0;
     font-weight: normal;

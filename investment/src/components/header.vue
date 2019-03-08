@@ -8,10 +8,10 @@
       </div>
     </div>
     <el-carousel indicator-position="outside" height="600px">
-      <el-carousel-item v-for="(key,item) in bannerItem" :key="item">
+      <el-carousel-item v-for="(item,index) in bannerItem" :key="index">
         <!-- <h3>{{ item }}</h3> -->
         <!-- <img :src="'../assets/banner'+ key +'.png'" alt=""> -->
-        <img src="../assets/banner1.png" alt="">
+        <img :src="item" alt="">
       </el-carousel-item>
     </el-carousel>
     <div class="tabs">
@@ -25,38 +25,60 @@
         <el-tab-pane label="联系我们" name="seven"></el-tab-pane>
       </el-tabs>
     </div>
-	<d-title></d-title>
+    <d-title></d-title>
   </header>
 </template>
 <script>
-	import DTitle from './title'
-	export default {
-		data() {
-			return {
-				bannerItem: ['../assets/banner1.png', '../assets/banner2.png', '../assets/banner3.png'],
-				activeName:'first'
-			}
-		},
-		components:{ DTitle },
-		methods: {
-		handleClick(tab) {
-			if (tab.name == 'first') {
-				this.$router.push('/')
-			} else if (tab.name == 'third') {
-				this.$router.push('/activity')
-			} else if (tab.name == 'six') {
-				this.$router.push('/dj')
-			}else if(tab.name=='fourth'){
-				this.$router.push('/serve')
-			}else if(tab.name === 'news'){
-				this.$router.push('/news')
-			}else if(tab.name === 'dynamic'){
-				this.$router.push('/dynamic')
-			}
+  import DTitle from './title'
+  import api from '@/api/index.js'
+  export default {
+    components: {
+      DTitle
+    },
+    data() {
+      return {
+        bannerItem: [],
+        activeName: 'first'
+      }
+    },
 
-		}
-		},
-	}
+    created() {
+      this.getpooto()
+    },
+
+
+    methods: {
+      handleClick(tab) {
+        if (tab.name == 'first') {
+          this.$router.push('/')
+        } else if (tab.name == 'third') {
+          this.$router.push('/activity')
+        } else if (tab.name == 'six') {
+          this.$router.push('/dj')
+        } else if (tab.name == 'fourth') {
+          this.$router.push('/serve')
+        } else if (tab.name === 'news') {
+          this.$router.push('/news')
+        } else if (tab.name === 'dynamic') {
+          this.$router.push('/dynamic')
+        }
+
+      },
+
+      //获取轮播图
+      getpooto() {
+        api.getAttractphoto().then(res => {
+          res.forEach(item => {
+            if (item.type == 0) {
+              this.bannerItem.push(item.image)
+            }
+          })
+        }, err => {})
+
+
+      }
+    },
+  }
 
 </script>
 <style lang="less">

@@ -5,7 +5,8 @@
       <img :src="currimg" alt="" class="yi" :class="{'active':dh}">
       <div class="er">
 
-        <img v-lazy="item" alt="" :class="{'active':index==curr}" v-for="(item, index) in imglist" :key="index" class="potor" @mouseenter="jing(index)">
+        <img v-lazy="item.coverImage" alt="" :class="{'active':index==curr}" v-for="(item, index) in AttractingPhoto" :key="index"
+          class="potor" @mouseenter="jing(index)">
 
       </div>
       <div class="san">
@@ -14,8 +15,8 @@
             <span class="span1">招引新闻</span>
             <span class="span2">更多</span>
           </div>
-          <div class="p" v-for="(item, index) in 11" :key="index">
-            <router-link to="/zyxw"> 驾驶的烦恼啊大大群发萨达所大所 </router-link>
+          <div class="p" v-for="(item, index) in AttractingNews" :key="index">
+            <router-link to="/zyxw"> {{item.title}} </router-link>
           </div>
         </div>
       </div>
@@ -31,7 +32,7 @@
         <div class="flex">
           <div class="lm" v-for="(item, index) in 6" :key="index">
             <img src="../../assets/activity1.png" alt="">
-            <h3 class="h3">
+            <h3 class="h5">
               <router-link to="/zshd">首届阿联酋(2019)中国品牌博览会</router-link>
             </h3>
           </div>
@@ -71,7 +72,7 @@
           <div class="yf">
             <div class="lm" v-for="(item, index) in 4" :key="index">
               <img src="../../assets/activity1.png" alt="">
-              <h3 class="h3">
+              <h3 class="h5">
                 <router-link to="path">首届阿联酋(2019)中国品牌博览会</router-link>
               </h3>
             </div>
@@ -96,52 +97,88 @@
   </div>
 </template>
 <script>
-	import api from '@/api'
-	export default {
-		components: {
-		},
-		data() {
-			return {
-				imglist: [require('../../assets/activity2.png'), require('../../assets/activity3.png'), require(
-				'../../assets/activity4.png'), require('../../assets/activity2.png'), ],
-				curr: 0,
-				currimg: require('../../assets/activity4.png'),
-				dh: false,
-				xinwen: ['阿斯顿撒所大所多', '特瑞特瑞特瑞特惹我', '阿斯达四大所大所多', '阿斯达四大大多所'],
-				ss: 0,
-				title: '2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!'
-			}
-		},
-		methods: {
-			jing(index) {
-				this.curr = index
-				this.ss = index
-				this.currimg = this.imglist[index]
-				this.dh = true
-				setTimeout(() => {
-				this.dh = false
-				}, 200);
-			},
-			getHomeData (){
-				api.homeAttractNews().then((result) => {
-					console.log(result)
-				}).catch((err) => {
-					
-				});
-			}
-		},
-		computed: {
-			wz() {
-				let ss = ''
-				ss = this.xinwen[this.ss]
-				return ss
-			}
-		},
-		created (){
-			this.getHomeData()
-		}
+  import api from '@/api'
+  export default {
+    components: {},
+    data() {
+      return {
+        curr: 0,
+        currimg: '',
+        dh: false,
+        Photoxinwen: [],
+        ss: 0,
+        title: '2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!',
+        //招引服务及时新闻
+        AttractingNews: [],
+        //招引服务图片新闻
+        AttractingPhoto: []
+      }
+    },
+    mounted() {
 
-	}
+    },
+    methods: {
+
+      jing(index) {
+        this.curr = index
+        this.ss = index
+        this.currimg = this.AttractingPhoto[index].coverImage
+        this.dh = true
+        setTimeout(() => {
+          this.dh = false
+        }, 200);
+      },
+
+
+      //获得及时新闻
+      getHomeData() {
+        api.homeAttractNews({
+          pages: 0,
+          size: 10,
+          type: 0
+        }).then((result) => {
+             console.log(result);
+          this.AttractingNews = result
+
+        }).catch((err) => {
+
+        });
+      },
+      //获得图片新闻
+      getHomePhoto() {
+        api.homeAttractNews({
+          pages: 0,
+          size: 10,
+          type: 1
+        }).then((result) => {
+          this.AttractingPhoto = result.slice(0, 4)
+          // console.log(result);
+          this.currimg = this.AttractingPhoto[0].coverImage
+           this.AttractingPhoto.forEach( item => {
+             this.Photoxinwen.push(item.title)
+           })
+          // console.log(this.Photoxinwen);
+        }).catch((err) => {
+
+        });
+      }
+  
+
+    },
+    computed: {
+      wz() {
+        let ss = ''
+        ss = this.Photoxinwen[this.ss]
+        // console.log(this.AttractingPhoto[this.ss]);
+        return ss
+      }
+    },
+    created() {
+      this.getHomeData()
+      this.getHomePhoto()
+    }
+
+  }
 
 </script>
 <style scoped>
@@ -162,7 +199,7 @@
   }
 
   .yi {
-    flex: 2;
+    width: 450px;
     transition: 500ms;
   }
 
@@ -276,7 +313,7 @@
     text-align: center;
   }
 
-  .h3 {
+  .h5 {
     font-size: 15px;
     padding: 8px 0;
     font-weight: normal;
