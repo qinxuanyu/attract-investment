@@ -1,5 +1,5 @@
  .zhong {
-    height: 490px;
+    height: 500px;
     display: flex;
     margin-bottom: 35px;
     position: relative;
@@ -9,10 +9,10 @@
 
   .dw {
     position: absolute;
+    width: 400px;
     left: 0;
     bottom: 0;
     background-color: #C81207;
-    width: 396px;
     color: white;
     height: 36px;
     text-align: left;
@@ -20,6 +20,9 @@
     font-size: 20px;
     text-indent: 10px;
     z-index: 999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .yi {

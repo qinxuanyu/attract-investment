@@ -3,49 +3,42 @@
     <tab :yi="yi" :er="er"></tab>
     <div class="main">
       <div class="info-list">
-        <abstract-item></abstract-item>
-        <el-pagination background layout="prev, pager, next" :total="1000">
+        <abstract-item
+			v-for="(item,index) in left.list"
+			:key="index"
+			:title="item.title"
+			:content="item.summary"
+		></abstract-item>
+        <el-pagination 
+			background 
+			layout="prev, pager, next" 
+			:total="left.total"
+			@current-change="pageChange"
+			>
         </el-pagination>
       </div>
       <div class="news-list">
-        <div class="now">
-          <h3 class="title">即时新闻</h3>
-          <ul>
-            <li>为缓解企业职工后顾之忧，松江区产业园内办起小儿托育园</li>
-            <li>为缓解企业职工后顾之忧，松江区产业园内办起小儿托育园</li>
-            <li>为缓解企业职工后顾之忧，松江区产业园内办起小儿托育园</li>
-          </ul>
-        </div>
         <div class="img clearfix">
           <h3 class="title">图片新闻</h3>
-          <div class="item">
+          <div class="item" v-for="(item,index) in right[1]" :key="index">
             <div class="img-box-d">
-              <img src="../../assets/activity1.png" alt="">
+              <img :src="item.coverImage" alt="">
             </div>
-            <p>G60科创走廊落户色谱分离材料制造企业</p>
+            <p>{{item.title}}</p>
           </div>
-          <div class="item" style="margin-left:16px">
+          
+        </div>
+        <div class="img clearfix">
+          <h3 class="title">视频新闻</h3>
+           <div class="item" v-for="(item,index) in right[2]" :key="index">
             <div class="img-box-d">
-              <img src="../../assets/activity1.png" alt="">
+              <img :src="item.coverImage" alt="">
             </div>
-            <p>G60科创走廊落户色谱分离材料制造企业</p>
+            <p>{{item.title}}</p>
           </div>
+         
         </div>
-        <div class="rank">
-          <h3 class="title">一周新闻排行榜</h3>
-          <ul>
-            <li>
-              <p>为缓解企业职工后顾之忧，松江区产业园内办起小儿托育园<span>654</span></p>
-            </li>
-            <li>
-              <p>为缓解企业职工后顾之忧，松江区产业园内办起小儿托育园<span>654</span></p>
-
-            </li>
-            <li>
-              <p>为缓解企业职工后顾之忧，松江区产业园内办起小儿托育园<span>654</span></p>
-            </li>
-          </ul>
-        </div>
+       
       </div>
     </div>
   </div>
@@ -53,17 +46,62 @@
 <script>
   import abstractItem from '@/components/abstract-item'
   import tab from '../../components/table.vue'
+  import api from '@/api'
   export default {
     data() {
-      return {
-        yi: '招引服务',
-        er: '深圳产业园招商',
-      }
+		return {
+			yi: '招引服务',
+			er: '深圳产业园招商',
+			left:{
+				list:[],
+				total:0,
+				page:0
+			},
+			right:{
+				1:[],
+				2:[]
+			}
+		}
     },
     components: {
       abstractItem,
       tab
-    }
+    },
+    methods:{
+		//左边新闻列表
+		getDynamicListFun (){
+			api.getDynamicList({
+				page:this.left.page,
+				size:7	
+			}).then((result) => {
+				this.left.list = result.list;
+				this.left.total = result.total
+			}).catch((err) => {
+			
+			});
+		},
+		pageChange (val){
+			this.left.page = val;
+			this.getDynamicListFun()
+		},
+		//右边新闻
+		getImgOrVideoListFun (type){
+			api.getImgOrVideoList({
+				page:0,
+				size:4,
+				type:type //类型1图片新闻2视频新闻 默认1
+			}).then((result) => {
+				this.right[type] = result;
+			}).catch((err) => {
+				
+			});
+		}
+	},
+	created (){
+		this.getDynamicListFun();
+		this.getImgOrVideoListFun(1);
+		this.getImgOrVideoListFun(2)
+	}
 
   }
 
@@ -97,6 +135,7 @@
           }
         }
         .img {
+			width: 100%;
           .item {
             width: 147px;
             float: left;
