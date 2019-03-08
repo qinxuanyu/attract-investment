@@ -39,4 +39,9 @@ export default [
         name: 'attractingD',
         component: () => import( '@/views/Details-page/Attracting-dynamic.vue')
     },
+    {
+        path: '/Attracting-party/:id',  //党建详情
+        name: 'attractingD',
+        component: () => import( '@/views/Details-page/Attracting-party.vue')
+    },
 ]

@@ -41,9 +41,7 @@
 		}
 
     },
-    methods: {
-    
-    },
+   
     computed: {
 
 	},

@@ -31,7 +31,7 @@
     },
     methods: {
 		getAttractNewsByIdFun (){
-			api.getDynamicById({
+			api.getPartyBuildingById({
 				id:this.id
 			}).then((result) => {
 				this.detailsData = result;
@@ -39,7 +39,9 @@
 				
 			});
 		}
+
     },
+   
     computed: {
 
 	},
