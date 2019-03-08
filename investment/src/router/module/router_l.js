@@ -13,22 +13,22 @@ export default [{
   },
   {
     //党建
-    path: '/dj',
-    name: 'dj',
+    path: '/party-building',
+    name: 'party-building',
     component: () =>
       import ('@/views/index/party-building')
   },
   {
     //招引新闻-更多
-    path: '/zyxw',
-    name: 'zyxw',
+    path: '/Attracting-news',
+    name: 'Attracting-news',
     component: () =>
       import ('@/views/Details-page/Attracting-news')
   },
   {
     //招引活动-更多
-    path: '/zshd',
-    name: 'zshd',
+    path: '/Attracting-activities',
+    name: 'Attracting-activities',
     component: () =>
       import ('@/views/Details-page/Attracting-activities')
   },
@@ -46,4 +46,5 @@ export default [{
     component: () =>
       import ('@/views/Attracting-service-details/index')
   },
+
 ]

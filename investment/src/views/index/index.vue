@@ -16,7 +16,7 @@
             <span class="span2">更多</span>
           </div>
           <div class="p" v-for="(item, index) in AttractingNews" :key="index">
-            <router-link to="/zyxw"> {{item.title}} </router-link>
+            <router-link to="/Attracting-news"> {{item.title}} </router-link>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
           <div class="lm" v-for="(item, index) in 6" :key="index">
             <img src="../../assets/activity1.png" alt="">
             <h3 class="h5">
-              <router-link to="/zshd">首届阿联酋(2019)中国品牌博览会</router-link>
+              <router-link to="/Attracting-activities">首届阿联酋(2019)中国品牌博览会</router-link>
             </h3>
           </div>
 
@@ -47,7 +47,7 @@
             <span class="span2">更多</span>
           </div>
           <div class="p" v-for="(item, index) in 8" :key="index">
-            <router-link to="/zyxw">驾驶的烦恼啊大大群发萨给</router-link>
+            <router-link to="/Attracting-news">驾驶的烦恼啊大大群发萨给</router-link>
           </div>
 
         </div>
@@ -65,7 +65,7 @@
           <div class="zf">
             <h3 style="text-align: left;padding-bottom: 5px;">商务局2019年建党工作要点</h3>
             <span class="span" v-for="(item, index) in 7" :key="index">
-              <router-link to="/zshd">事务局关于开展'党建模范建设'</router-link>
+              <router-link to="/Attracting-activities">事务局关于开展'党建模范建设'</router-link>
               </span>
 
           </div>
@@ -86,7 +86,7 @@
             <span class="span2">更多</span>
           </div>
           <div class="p" v-for="(item, index) in 9" :key="index">
-            <router-link to="/zshd">驾驶的烦恼啊大大群发萨给</router-link>
+            <router-link to="/Attracting-activities">驾驶的烦恼啊大大群发萨给</router-link>
           </div>
 
         </div>
@@ -108,9 +108,9 @@
         Photoxinwen: [],
         ss: 0,
         title: '2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!',
-        //招引服务及时新闻
+        //招引新闻
         AttractingNews: [],
-        //招引服务图片新闻
+        //图片新闻
         AttractingPhoto: []
       }
     },
@@ -137,7 +137,7 @@
           size: 10,
           type: 0
         }).then((result) => {
-             console.log(result);
+          // console.log(result);
           this.AttractingNews = result
 
         }).catch((err) => {
@@ -154,22 +154,52 @@
           this.AttractingPhoto = result.slice(0, 4)
           // console.log(result);
           this.currimg = this.AttractingPhoto[0].coverImage
-           this.AttractingPhoto.forEach( item => {
-             this.Photoxinwen.push(item.title)
-           })
+          this.AttractingPhoto.forEach(item => {
+            this.Photoxinwen.push(item.title)
+          })
           // console.log(this.Photoxinwen);
         }).catch((err) => {
 
         });
+      },
+      //获得招商活动
+      getInvestmentActivity() {
+        api.homeInvestmentActivity({
+          page: 0,
+          size: 10,
+        }).then(res => {}, error => {})
+      },
+      //获得招引服务
+      getAttractServe() {
+        api.homeAttractServe({
+          page: 0,
+          size: 10,
+        }).then(res => {}, err => {
+
+        })
+      },
+      //获得党建工作
+      getPartyBuilding() {
+        api.homePartyBuilding({
+          page: 0,
+          size: 10
+        }).then(res => {
+          // console.log(res);
+        }, err => {
+
+        })
+      },
+      //获得三圈动态
+      getDynamic() {
+        api.homeDynamic({
+          page: 0,
+          size: 10
+        }).then(res => {
+
+        }, err => {
+
+        })
       }
-  
-
-
-
-
-
-
-
 
 
     },
@@ -184,6 +214,10 @@
     created() {
       this.getHomeData()
       this.getHomePhoto()
+      this.getInvestmentActivity()
+      this.getAttractServe()
+      this.getPartyBuilding()
+      this.getDynamic()
     }
 
   }
@@ -241,10 +275,11 @@
     flex: 1;
     height: 115px;
     width: 200px;
+     border: 3px #FFFFFF solid;
   }
 
   .potor.active {
-    border: 3px red solid;
+    border-color: red; 
   }
 
   .yi.active {

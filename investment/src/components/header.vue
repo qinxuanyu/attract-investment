@@ -56,7 +56,7 @@
         } else if (tab.name == 'third') {
           this.$router.push('/activity')
         } else if (tab.name == 'six') {
-          this.$router.push('/dj')
+          this.$router.push('/party-building')
         } else if (tab.name == 'fourth') {
           this.$router.push('/serve')
         } else if (tab.name === 'news') {

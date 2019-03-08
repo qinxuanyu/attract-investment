@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <tit :title="title"></tit>
+   
 
     <div class="top">
       <div class="zflex">
@@ -88,18 +88,34 @@
   </div>
 </template>
 <script>
-  import tit from '../../components/title.vue'
+
+ import api from '../../api/index.js'
+
   export default {
     components: {
-      tit
+    
     },
     data() {
       return {
-        title: '2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!'
+
       }
     },
+    created() {
+       this.getActivityList()
+    },
     methods: {
+      //获取活动列表
+      getActivityList(){
+       api.investmentActivityList({
+          page:0,
+          size:10,
+          type:0
+       }).then(res=>{
+        //  console.log(res);
+       },err=>{
 
+       })
+      }
     }
 
   }
