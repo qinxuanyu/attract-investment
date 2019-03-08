@@ -1,8 +1,6 @@
 <template>
   <div class="zw">
 
-    <tit :title="title"></tit>
-
     <tab :yi="yi" :er="er"></tab>
 
     <h2 style="font-size: 21px;font-weight: normal;text-align: left;margin: 15px 0;">2019华南国际无线充电技术及应用展览会</h2>
@@ -30,8 +28,8 @@
     },
     data() {
       return {
-        yi: '招商活动',
-        er: '招商峰会',
+        yi: '首页',
+        er: '建党工作',
          title:'2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!'
       }
     },

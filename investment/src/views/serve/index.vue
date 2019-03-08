@@ -83,7 +83,7 @@
           page: 0,
           size: 10,
         }).then(res => {
-          // console.log(res);
+          console.log(res);
         }, err => {
 
         })

@@ -2,11 +2,11 @@
   <div>
     <div class="zhong">
       <div class="dw">{{wz}}</div>
-      <img :src="currimg" alt="" class="yi" :class="{'active':dh}">
+      <img :src="currimg.coverImage" alt="" class="yi" :class="{'active':dh}" @click=dj(currimg.id)>
       <div class="er">
 
         <img v-lazy="item.coverImage" alt="" :class="{'active':index==curr}" v-for="(item, index) in AttractingPhoto" :key="index"
-          class="potor" @mouseenter="jing(index)">
+          class="potor" @mouseenter="jing(index)" @click="tz(item.id)">
 
       </div>
       <div class="san">
@@ -47,7 +47,7 @@
             <span class="span2">更多</span>
           </div>
           <div class="p" v-for="(item, index) in homeAttractServe" :key="index">
-            <router-link to="/Attracting-news">{{item.title}}</router-link>
+            <router-link :to="'/Attracting-news/'+item.id">{{item.title}}</router-link>
           </div>
 
         </div>
@@ -103,7 +103,7 @@
     data() {
       return {
         curr: 0,
-        currimg: '',
+        currimg: {},
         dh: false,
         Photoxinwen: [],
         ss: 0,
@@ -126,15 +126,23 @@
     },
 
     methods: {
-
+      //点击banner跳转
+      dj(id) {
+        this.$router.push('/Attracting-news/' + id)
+      },
+      //点击轮播图跳转
+      tz(id) {
+        this.$router.push('/Attracting-news/' + id)
+      },
       jing(index) {
         this.curr = index
         this.ss = index
-        this.currimg = this.AttractingPhoto[index].coverImage
+        this.currimg = this.AttractingPhoto[index]
         this.dh = true
         setTimeout(() => {
           this.dh = false
         }, 200);
+
       },
 
 
@@ -147,7 +155,7 @@
         }).then((result) => {
           // console.log(result);
           this.AttractingNews = result
-     console.log(this.AttractingNews);
+          //  console.log(this.AttractingNews);
         }).catch((err) => {
 
         });
@@ -161,10 +169,11 @@
         }).then((result) => {
           this.AttractingPhoto = result.slice(0, 4)
           // console.log(result);
-          this.currimg = this.AttractingPhoto[0].coverImage
+          this.currimg = this.AttractingPhoto[0]
           this.AttractingPhoto.forEach(item => {
             this.Photoxinwen.push(item.title)
           })
+          //  console.log(this.currimg);
           // console.log(this.Photoxinwen);
         }).catch((err) => {
 
@@ -177,6 +186,7 @@
           size: 10,
         }).then(res => {
           this.homeInvestmentActivity = res
+          // console.log(res);
         }, error => {})
       },
       //获得招引服务
@@ -186,6 +196,7 @@
           size: 10,
         }).then(res => {
           this.homeAttractServe = res
+          // console.log(res);
         }, err => {})
       },
 
@@ -422,7 +433,7 @@
     left: 0;
     bottom: 0;
     background-color: #C81207;
-    width: 396px;
+    width: 450px;
     color: white;
     height: 36px;
     text-align: left;
