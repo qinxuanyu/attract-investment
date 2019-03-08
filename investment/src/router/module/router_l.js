@@ -19,6 +19,13 @@ export default [{
       import ('@/views/index/party-building')
   },
   {
+    //党建更多
+    path: '/party-building-more/:id',
+    name: 'party-building-more',
+    component: () =>
+      import ('@/views/Details-page/party-building-more')
+  },
+  {
     //招引新闻-详情
     path: '/Attracting-news/:id',
     name: 'Attracting-news',
@@ -46,5 +53,6 @@ export default [{
     component: () =>
       import ('@/views/Attracting-service-details/index')
   },
+   
 
 ]

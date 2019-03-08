@@ -112,8 +112,14 @@ export default {
       data
     })
   },
-
-
+//服务咨询列表
+   getserveList(data) {
+    return fetch({
+      url: '/attractServe/serveList',
+      method: 'get',
+      data
+    })
+  },
 
 
 }

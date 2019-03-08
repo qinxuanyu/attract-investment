@@ -262,7 +262,7 @@
   }
 
   .yi {
-    width: 450px;
+    width: 450px !important;
     transition: 500ms;
   }
 
