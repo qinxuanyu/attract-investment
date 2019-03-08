@@ -30,8 +30,12 @@
         title: '2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!'
       }
     },
-    methods: {
+    created() {
+      console.log(this.$route.params.id);
 
+    },
+    methods: {
+    
     },
     computed: {
 

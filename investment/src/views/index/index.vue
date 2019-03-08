@@ -16,7 +16,7 @@
             <span class="span2">更多</span>
           </div>
           <div class="p" v-for="(item, index) in AttractingNews" :key="index">
-            <router-link to="/Attracting-news"> {{item.title}} </router-link>
+            <router-link :to="'/Attracting-news/'+item.id"> {{item.title}} </router-link>
           </div>
         </div>
       </div>
@@ -30,10 +30,10 @@
           <span class="span2">更多</span>
         </div>
         <div class="flex">
-          <div class="lm" v-for="(item, index) in 6" :key="index">
+          <div class="lm" v-for="(item, index) in  homeInvestmentActivity" :key="index">
             <img src="../../assets/activity1.png" alt="">
             <h3 class="h5">
-              <router-link to="/Attracting-activities">首届阿联酋(2019)中国品牌博览会</router-link>
+              <router-link to="/Attracting-activities">{{item.title}}</router-link>
             </h3>
           </div>
 
@@ -46,8 +46,8 @@
             <span class="span1" style="color:#001F84">招引服务</span>
             <span class="span2">更多</span>
           </div>
-          <div class="p" v-for="(item, index) in 8" :key="index">
-            <router-link to="/Attracting-news">驾驶的烦恼啊大大群发萨给</router-link>
+          <div class="p" v-for="(item, index) in homeAttractServe" :key="index">
+            <router-link to="/Attracting-news">{{item.title}}</router-link>
           </div>
 
         </div>
@@ -64,16 +64,16 @@
         <div class="flex">
           <div class="zf">
             <h3 style="text-align: left;padding-bottom: 5px;">商务局2019年建党工作要点</h3>
-            <span class="span" v-for="(item, index) in 7" :key="index">
-              <router-link to="/Attracting-activities">事务局关于开展'党建模范建设'</router-link>
+            <span class="span" v-for="(item, index) in homePartyBuilding1" :key="index">
+              <router-link to="/Attracting-activities">{{item.title}}</router-link>
               </span>
 
           </div>
           <div class="yf">
-            <div class="lm" v-for="(item, index) in 4" :key="index">
-              <img src="../../assets/activity1.png" alt="">
+            <div class="lm" v-for="(item, index) in homePartyBuilding2" :key="index">
+              <img v-lazy="item.coverImage" alt="" style="width:225px;height:139px;">
               <h3 class="h5">
-                <router-link to="path">首届阿联酋(2019)中国品牌博览会</router-link>
+                <router-link to="path">{{item.title}}</router-link>
               </h3>
             </div>
           </div>
@@ -85,8 +85,8 @@
             <span class="span1" style="color:#001F84">三圈动态</span>
             <span class="span2">更多</span>
           </div>
-          <div class="p" v-for="(item, index) in 9" :key="index">
-            <router-link to="/Attracting-activities">驾驶的烦恼啊大大群发萨给</router-link>
+          <div class="p" v-for="(item, index) in homeDynamic" :key="index">
+            <router-link to="/Attracting-activities">{{item.title}}</router-link>
           </div>
 
         </div>
@@ -111,12 +111,20 @@
         //招引新闻
         AttractingNews: [],
         //图片新闻
-        AttractingPhoto: []
+        AttractingPhoto: [],
+        //三圈动态
+        homeDynamic: [],
+        //招引服务
+        homeAttractServe: [],
+        //招商活动
+        homeInvestmentActivity: [],
+        //建党工作1
+        homePartyBuilding1: [],
+        //建党工作2
+        homePartyBuilding2: [],
       }
     },
-    mounted() {
 
-    },
     methods: {
 
       jing(index) {
@@ -139,7 +147,7 @@
         }).then((result) => {
           // console.log(result);
           this.AttractingNews = result
-
+     console.log(this.AttractingNews);
         }).catch((err) => {
 
         });
@@ -167,24 +175,28 @@
         api.homeInvestmentActivity({
           page: 0,
           size: 10,
-        }).then(res => {}, error => {})
+        }).then(res => {
+          this.homeInvestmentActivity = res
+        }, error => {})
       },
       //获得招引服务
       getAttractServe() {
         api.homeAttractServe({
           page: 0,
           size: 10,
-        }).then(res => {}, err => {
-
-        })
+        }).then(res => {
+          this.homeAttractServe = res
+        }, err => {})
       },
+
       //获得党建工作
       getPartyBuilding() {
         api.homePartyBuilding({
           page: 0,
           size: 10
         }).then(res => {
-          // console.log(res);
+          this.homePartyBuilding1 = res.slice(0, 5)
+          this.homePartyBuilding2 = res.slice(0, 4)
         }, err => {
 
         })
@@ -195,10 +207,8 @@
           page: 0,
           size: 10
         }).then(res => {
-
-        }, err => {
-
-        })
+          this.homeDynamic = res
+        }, err => {})
       }
 
 
@@ -275,11 +285,11 @@
     flex: 1;
     height: 115px;
     width: 200px;
-     border: 3px #FFFFFF solid;
+    border: 3px #FFFFFF solid;
   }
 
   .potor.active {
-    border-color: red; 
+    border-color: red;
   }
 
   .yi.active {
@@ -360,6 +370,11 @@
     font-size: 15px;
     padding: 8px 0;
     font-weight: normal;
+    text-align: left;
+    width: 224px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   .yy {

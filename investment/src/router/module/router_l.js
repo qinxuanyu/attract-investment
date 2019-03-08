@@ -20,7 +20,7 @@ export default [{
   },
   {
     //招引新闻-更多
-    path: '/Attracting-news',
+    path: '/Attracting-news/:id',
     name: 'Attracting-news',
     component: () =>
       import ('@/views/Details-page/Attracting-news')
