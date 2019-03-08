@@ -14,7 +14,7 @@ const baseURL = "/plant_api";
 
 // 创建axios实例
 const service = axios.create({
-    baseURL: process.env.BASE_API, // api的base_url
+    baseURL: '/invite_business_api', // api的base_url
     timeout: 15000, // 请求超时时间
     headers: {
         "Content-Type": "application/json;charset=UTF-8",
@@ -29,7 +29,7 @@ service.interceptors.request.use(
     config => {
         store.commit("UPDATE_LOADING", true);
         config.method = config.method.toLowerCase();
-       
+        // config.headers['token'] = store.getters.token || "";
         
         if (config.data) {
             let params = config.url.match(/(\{[^{}]+\})/g);

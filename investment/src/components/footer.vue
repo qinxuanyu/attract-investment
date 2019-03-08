@@ -29,7 +29,7 @@
             </ul>
             <div class="info">
                 <p>Copyright © 2016-2017 yhby.org. All Rights Reserved.</p>
-                <p>粤ICP备19018225号</p>
+                <p><a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank" rel="noopener noreferrer">粤ICP备19018225号</a></p>
             </div>
         </div>
     </footer>
@@ -43,6 +43,7 @@
     #footer{
         background-color: #00238c;
         margin-top: 98px;
+        min-width: 1200px;
         .wrap{
             width: 1200px;
             margin: 0 auto;
@@ -83,6 +84,9 @@
                 margin-top: 48px;
                 font-size: 16px;
                 color: #fff;
+                a{
+                    color: #fff;
+                }
             }
         }
      

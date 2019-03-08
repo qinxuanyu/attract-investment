@@ -4,36 +4,23 @@
             <div class="forthwith">
                 <h3 class="title">即时新闻</h3>
                 <ul>
-                    <li>
-                        <p>苏州外贸进口首月“开门红”！苏州外贸进口首月“开门红”！苏州外贸进口首月“开门红”！</p>
+                    <li v-for="(item,index) in leftNews[0]" :key="index">
+                        <p>{{item.title}}</p>
                     </li>
-                    <li>
-                        <p>苏州外贸进口首月“开门红”！</p>
-                    </li>
-                    <li>
-                        <p>苏州外贸进口首月“开门红”！</p>
-                    </li>
-                    <li>
-                        <p>苏州外贸进口首月“开门红”！</p>
-                    </li>
+                   
                     
                 </ul>
             </div>
             <div class="img-news">
                 <h3 class="title">图片新闻</h3>
                 <div class="box">
-                    <div class="item">
-                        <img src="http://img0.imgtn.bdimg.com/it/u=3862008110,2473046816&fm=26&gp=0.jpg" alt="">
+                    <router-link to="" class="item" v-for="(item,index) in leftNews[1]" :key="index">
+                        <img :src="item.coverImage" alt="">
                         <p>
-                            G60科创走廊落户色谱分离材料制造企业
+                            {{item.title}}
                         </p>
-                    </div>
-                    <div class="item">
-                        <img src="http://img0.imgtn.bdimg.com/it/u=3862008110,2473046816&fm=26&gp=0.jpg" alt="">
-                        <p>
-                            G60科创走廊落户色谱分离材料制造企业
-                        </p>
-                    </div>
+                    </router-link>
+                    
                 </div>
             </div>
             <div class="rank">
@@ -57,22 +44,79 @@
         <div class="right">
             <ul>
                 <li>
-                   <abstract-item></abstract-item>
+                   <abstract-item
+                        v-for="(item,index) in rigthNews.list"
+                        :key="index"
+                        :title="item.title"
+                        :content="item.summary"
+                   ></abstract-item>
                 </li>
             </ul>
             <el-pagination
                 background
                 layout="prev, pager, next"
-                :total="1000">
+                @current-change="handleSizeChange"
+                :total="rigthNews.total">
             </el-pagination>
         </div>
     </div>
 </template>
 <script>
     import abstractItem from '@/components/abstract-item'
+    import api from '@/api'
     export default {
+        data(){
+            return{
+                rigthNews:{
+                    total:0,
+                    list:[],
+                    page:0,
+                    size:7
+                },
+                leftNews:{
+                    0:[],
+                    1:[],
+                }
+            }
+        },
         components:{
             abstractItem
+        },
+        methods:{
+            //右边新闻
+            getNewsListRightFun (){
+                api.getNewsListRight({
+                    page:this.rigthNews.page,
+                    size:this.rigthNews.size
+                }).then((result) => {
+                    this.rigthNews.list = result.attractNewsPageVO;
+                    this.rigthNews.total = result.total;
+                }).catch((err) => {
+                    
+                });
+            },
+            handleSizeChange(val){
+                // console.log(val)
+                this.rigthNews.page = val - 1;
+                this.getNewsListRightFun()
+            },
+            //左边新闻
+            getNewsListLeftFun (type){
+                api.getNewsListLeft({
+                    page:0,
+                    size:type === 0 ? 7 :2,
+                    type:type //类型0即时新闻1图片新闻 默认查找全部
+                }).then((result) => {
+                    this.leftNews[type] =  result;
+                }).catch((err) => {
+                    
+                });
+            }
+        },
+        created (){
+            this.getNewsListRightFun();
+            this.getNewsListLeftFun(0);
+            this.getNewsListLeftFun(1)
         }
     }
 </script>
