@@ -19,8 +19,8 @@ export default [{
       import ('@/views/index/party-building')
   },
   {
-    //招引新闻-更多
-    path: '/Attracting-news',
+    //招引新闻-详情
+    path: '/Attracting-news/:id',
     name: 'Attracting-news',
     component: () =>
       import ('@/views/Details-page/Attracting-news')

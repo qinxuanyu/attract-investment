@@ -5,7 +5,9 @@
                 <h3 class="title">即时新闻</h3>
                 <ul>
                     <li v-for="(item,index) in leftNews[0]" :key="index">
-                        <p>{{item.title}}</p>
+                        <p>
+                            <router-link :to="'/Attracting-news/'+item.id">{{item.title}}</router-link>
+                        </p>
                     </li>
                    
                     
@@ -14,7 +16,7 @@
             <div class="img-news">
                 <h3 class="title">图片新闻</h3>
                 <div class="box">
-                    <router-link to="" class="item" v-for="(item,index) in leftNews[1]" :key="index">
+                    <router-link :to="'/Attracting-news/'+item.id" class="item" v-for="(item,index) in leftNews[1]" :key="index">
                         <img :src="item.coverImage" alt="">
                         <p>
                             {{item.title}}
@@ -49,6 +51,7 @@
                         :key="index"
                         :title="item.title"
                         :content="item.summary"
+                        @click.native.stop="$router.push('/Attracting-news/'+item.id)"
                    ></abstract-item>
                 </li>
             </ul>
@@ -94,7 +97,7 @@
                 }).catch((err) => {
                     
                 });
-            },
+            }, 
             handleSizeChange(val){
                 // console.log(val)
                 this.rigthNews.page = val - 1;

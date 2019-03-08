@@ -23,6 +23,14 @@ export default{
             data
         })
     },
+     //招引新闻详情
+     getAttractNewsById (data){
+        return fetch({
+            url:'/attractNews/getAttractNewsById',
+            method:'get',
+            data
+        })
+    },
     //三圈动态左边新闻
     getDynamicList (data){
         return fetch({
