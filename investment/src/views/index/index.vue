@@ -130,7 +130,7 @@
       },
 
 
-      //获得及时新闻
+      //获得招引新闻
       getHomeData() {
         api.homeAttractNews({
           pages: 0,
@@ -163,6 +163,14 @@
         });
       }
   
+
+
+
+
+
+
+
+
 
     },
     computed: {

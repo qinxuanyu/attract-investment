@@ -7,7 +7,7 @@
         <p class="en">xiaoyouhuizhaoshangyinzifuwupingtai</p>
       </div>
     </div>
-<<<<<<< HEAD
+
     <el-carousel indicator-position="outside" height="600px">
       <el-carousel-item v-for="(item,index) in bannerItem" :key="index">
         <!-- <h3>{{ item }}</h3> -->
@@ -15,20 +15,7 @@
         <img :src="item" alt="">
       </el-carousel-item>
     </el-carousel>
-=======
-    <div class="carousel">
-      <el-carousel  indicator-position="outside"  height="600px">
-        <el-carousel-item v-for="(key,item) in bannerItem" :key="item">
-          <!-- <h3>{{ item }}</h3> -->
-          <!-- <img :src="'../assets/banner'+ key +'.png'" alt=""> -->
-          <div class="img-box-d">
-            <img src="../assets/banner1.png" alt="">
-          </div>
-        </el-carousel-item>
-      </el-carousel>
-    </div>
-    
->>>>>>> 4b347cb61620f9d0627ddffdf56aaebc6a3c1538
+
     <div class="tabs">
       <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="首页" name="first"></el-tab-pane>
