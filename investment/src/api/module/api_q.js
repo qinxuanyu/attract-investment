@@ -47,10 +47,26 @@ export default{
             data
         })
     },
+      //三圈动态详情
+      getDynamicById (data){
+        return fetch({
+            url:'/dynamic/getDynamicById',
+            method:'get',
+            data
+        })
+    },
      //党建工作
      getPartyBuildingList (data){
         return fetch({
             url:'/partyBuilding/getPartyBuildingList',
+            method:'get',
+            data
+        })
+    },
+    //党建详情
+    getPartyBuildingById (data){
+        return fetch({
+            url:'/partyBuilding/getPartyBuildingById',
             method:'get',
             data
         })

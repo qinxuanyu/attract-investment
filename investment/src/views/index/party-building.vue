@@ -30,7 +30,9 @@
               :title="item.title"
               :name="index"
             >
-              <div>{{item.summary}}</div>
+              <div>
+				  <router-link :to="'/Attracting-party/'+item.id">{{item.summary}}</router-link>
+			  </div>
             </el-collapse-item>
           </el-collapse>
         </div>
@@ -47,22 +49,25 @@
 				v-for="(item,index) in study"
 				:key="index"
 			>
-				<p>{{item.title}}</p>
+				<p>
+					<router-link :to="'/Attracting-party/'+item.id">{{item.title}}</router-link>
+				</p>
 			</li>
 		</ul>
       </div>
 
       <div class="ffy">
-        <div class="lm"
+        <router-link class="lm"
 			v-for="(item,index) in study"
 			:key="index"
 			v-if="index < 4"
+			:to="'/Attracting-party/'+item.id"
 		>
 			<div class="img-box-d">
 				<img :src="item.coverImage" alt>
 			</div>
 			<h3 class="h5">{{item.title}}</h3>
-        </div>
+        </router-link>
         
       </div>
     </div>

@@ -8,6 +8,7 @@
 			:key="index"
 			:title="item.title"
 			:content="item.summary"
+			@click.native.stop="$router.push('/Attracting-dynamic/'+item.id)"
 		></abstract-item>
         <el-pagination 
 			background 
@@ -20,22 +21,27 @@
       <div class="news-list">
         <div class="img clearfix">
           <h3 class="title">图片新闻</h3>
-          <div class="item" v-for="(item,index) in right[1]" :key="index">
-            <div class="img-box-d">
-              <img :src="item.coverImage" alt="">
-            </div>
-            <p>{{item.title}}</p>
-          </div>
+			<router-link 
+				class="item" 
+				v-for="(item,index) in right[1]" 
+				:key="index"
+				:to="'/Attracting-dynamic/'+item.id"
+				>
+					<div class="img-box-d">
+					<img :src="item.coverImage" alt="">
+					</div>
+				<p>{{item.title}}</p>
+			</router-link>
           
         </div>
         <div class="img clearfix">
           <h3 class="title">视频新闻</h3>
-           <div class="item" v-for="(item,index) in right[2]" :key="index">
-            <div class="img-box-d">
-              <img :src="item.coverImage" alt="">
-            </div>
-            <p>{{item.title}}</p>
-          </div>
+			<router-link class="item" v-for="(item,index) in right[2]" :key="index" :to="'/Attracting-dynamic/'+item.id">
+				<div class="img-box-d">
+					<img :src="item.coverImage" alt="">
+				</div>
+				<p>{{item.title}}</p>
+			</router-link>
          
         </div>
        
