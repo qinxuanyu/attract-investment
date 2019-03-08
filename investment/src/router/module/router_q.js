@@ -7,7 +7,7 @@ export default [
     {
         path: '/activity',
         name: 'activity',
-        component: () => import('@/views/index/activity.vue')
+        component: () => import('@/views/activity/index.vue')
     },
     {
         path: '/serve',

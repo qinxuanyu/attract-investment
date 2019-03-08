@@ -17,7 +17,7 @@
                 <h3 class="title">图片新闻</h3>
                 <div class="box">
                     <router-link :to="'/Attracting-news/'+item.id" class="item" v-for="(item,index) in leftNews[1]" :key="index">
-                        <img :src="item.coverImage" alt="">
+                        <img v-lazy="item.coverImage" alt="">
                         <p>
                             {{item.title}}
                         </p>

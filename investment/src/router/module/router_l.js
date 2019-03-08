@@ -27,14 +27,14 @@ export default [{
   },
   {
     //招引活动-更多
-    path: '/Attracting-activities',
+    path: '/Attracting-activities/:id',
     name: 'Attracting-activities',
     component: () =>
       import ('@/views/Details-page/Attracting-activities')
   },
   {
     //招引服务-更多
-    path: '/zyfu-zs',
+    path: '/zyfu-zs/:type',
     name: 'zyfu-zs',
     component: () =>
       import ('@/views/Details-page/Attracting-service')
