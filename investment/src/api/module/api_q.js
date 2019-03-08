@@ -63,6 +63,14 @@ export default{
             data
         })
     },
+ //党建工作更多
+      getBuildingVOList (data){
+        return fetch({
+            url:'/partyBuilding/getBuildingVOList',
+            method:'get',
+            data
+        })
+    },
     //党建详情
     getPartyBuildingById (data){
         return fetch({

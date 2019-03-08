@@ -10,13 +10,13 @@
         </div>
         <div class="main">
           <ul>
-            <li>
+            <li v-for="(item, index) in ServeList.IndustrialPark" :key="index">
               <div class="img-box-d">
-                <img src="../../assets/activity1.png" alt="">
+                <img :src="item.coverImage" alt="">
               </div>
-              <p>2019全球企业家论坛</p>
+              <p>{{item.title}}</p>
             </li>
-            <li></li>
+
           </ul>
         </div>
       </div>
@@ -26,9 +26,8 @@
           <span class="btn">更多</span>
         </div>
         <ul class="list">
-          <li>省商务厅张梁小康率队来鹰调研指导农村假冒伪劣食品专项调查....</li>
-          <li>省商务厅张梁小康率队来鹰调研指导农村假冒伪劣食品专项调查....</li>
-          <li>省商务厅张梁小康率队来鹰调研指导农村假冒伪劣食品专项调查....</li>
+          <li v-for="(item, index) in ServeList.ConsultingList" :key="index">{{item.title}}</li>
+
         </ul>
       </div>
     </div>
@@ -40,13 +39,13 @@
         </div>
         <div class="main">
           <ul>
-            <li>
+            <li v-for="(item, index) in ServeList.InvitationProjects" :key="index">
               <div class="img-box-d">
-                <img src="../../assets/activity1.png" alt="">
+                <img :src="item.coverImage" alt="">
               </div>
-              <p>2019全球企业家论坛</p>
+              <p>{{item.title}}</p>
             </li>
-            <li></li>
+
           </ul>
         </div>
       </div>
@@ -56,9 +55,7 @@
           <span class="btn">更多</span>
         </div>
         <ul class="list">
-          <li>省商务厅张梁小康率队来鹰调研指导农村假冒伪劣食品专项调查....</li>
-          <li>省商务厅张梁小康率队来鹰调研指导农村假冒伪劣食品专项调查....</li>
-          <li>省商务厅张梁小康率队来鹰调研指导农村假冒伪劣食品专项调查....</li>
+          <li v-for="(item, index) in ServeList.ServiceConsultation" :key="index">{{item.title}}</li>
         </ul>
       </div>
     </div>
@@ -69,23 +66,29 @@
   export default {
     data() {
       return {
+        //招引服务列表
+        ServeList: {
+          //产业园区招商
+          IndustrialPark: [],
+          //招商引资项目
+          InvitationProjects: [],
+          //服务咨询
+          ServiceConsultation: [],
 
+          ConsultingList: []
+        }
       }
     },
-    mounted() {
-      this.getServeList()
-      this.getProjectList()
-    },
+
     methods: {
       //获取招引服务列表
-      getServeList() {
+      getServeList(id, callback) {
         api.getattractServeList({
           page: 0,
           size: 10,
+          type: id
         }).then(res => {
-          console.log(res);
-        }, err => {
-
+          callback(res)
         })
       },
       //获取产品园区招商列表
@@ -94,13 +97,40 @@
           page: 0,
           size: 10,
         }).then(res => {
-          console.log(res);
+          // console.log(res);
+        }, err => {
+
+        })
+      },
+      //获取服务咨询列表
+      getProject() {
+        api.getserveList({
+          page: 0,
+          size: 10,
+        }).then(res => {
+          this.ServeList.ConsultingList=res.list
         }, err => {
 
         })
       }
-    },
 
+    },
+    created() {
+      //产业园区招商
+      this.getServeList(0, (data) => {
+        this.ServeList.IndustrialPark = data
+      })
+      // //招商引资项目
+      this.getServeList(1, (data) => {
+        this.ServeList.InvitationProjects = data
+      })
+      // //招商引资项目
+      this.getServeList(2, (data) => {
+        this.ServeList.ServiceConsultation = data
+      })
+      this.getProject()
+      this.getProjectList()
+    },
 
   }
 
