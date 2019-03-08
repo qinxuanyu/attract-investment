@@ -34,4 +34,9 @@ export default [
         name: 'dynamic',
         component: () => import( '@/views/dynamic/index.vue')
     },
+    {
+        path: '/Attracting-dynamic/:id',  //三圈动态详情
+        name: 'attractingD',
+        component: () => import( '@/views/Details-page/Attracting-dynamic.vue')
+    },
 ]
