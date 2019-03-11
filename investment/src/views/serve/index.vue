@@ -10,7 +10,7 @@
         </div>
         <div class="main">
           <ul>
-            <li v-for="(item, index) in ServeList.IndustrialPark" :key="index" @click.stop="$router.push('/garden/' + item.id)">
+            <li v-for="(item, index) in ServeList.IndustrialPark">
               <div class="img-box-d">
                 <img :src="item.coverImage" alt="">
               </div>
@@ -45,7 +45,6 @@
               </div>
               <p>{{item.title}}</p>
             </li>
-
           </ul>
         </div>
       </div>
@@ -55,8 +54,9 @@
           <span class="btn">更多</span>
         </div>
         <ul class="list">
-          <li v-for="(item, index) in ServeList.ServiceConsultation" :key="index">{{item.title}}</li>
+          <li v-for="(item, index) in ServeList.ServiceConsultation">{{item.title}}</li>
         </ul>
+
       </div>
     </div>
   </section>
@@ -118,6 +118,7 @@
     created() {
       //产业园区招商
       this.getServeList(0, (data) => {
+        // console.log(data);
         this.ServeList.IndustrialPark = data
       })
       // //招商引资项目
@@ -145,10 +146,9 @@
         .main {
           ul {
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
             li {
-              width: 226px;
+              flex: 0 0 33.33%;
               margin-top: 24px;
               .img-box-d {
                 width: 226px;
