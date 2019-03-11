@@ -5,12 +5,12 @@
         <div class="title">
           <span class="name">深圳产业园区招商</span>
           <span class="btn">
-                      <router-link to="/zyfu-zs/0">更多</router-link>
-                      </span>
+            <router-link to="/zyfu-zs/0">更多</router-link>
+          </span>
         </div>
         <div class="main">
           <ul>
-            <li v-for="(item, index) in ServeList.IndustrialPark" :key="index">
+            <li v-for="(item, index) in ServeList.IndustrialPark" :key="index" @click.stop="$router.push('/garden/' + item.id)">
               <div class="img-box-d">
                 <img :src="item.coverImage" alt="">
               </div>
@@ -26,7 +26,7 @@
           <span class="btn">更多</span>
         </div>
         <ul class="list">
-          <li v-for="(item, index) in ServeList.ConsultingList" :key="index">{{item.title}}</li>
+          <li v-for="(item, index) in ServeList.ConsultingList" :key="index" >{{item.title}}</li>
 
         </ul>
       </div>
@@ -35,11 +35,11 @@
       <div class="red">
         <div class="title">
           <span class="name">深圳大湾区招商引资项目</span>
-          <span class="btn">更多</span>
+          <router-link to="/zyfu-zs/1">更多</router-link>
         </div>
         <div class="main">
           <ul>
-            <li v-for="(item, index) in ServeList.InvitationProjects" :key="index">
+            <li v-for="(item, index) in ServeList.InvitationProjects" :key="index" @click.stop="$router.push('/zyfu-index/' + item.id)">
               <div class="img-box-d">
                 <img :src="item.coverImage" alt="">
               </div>

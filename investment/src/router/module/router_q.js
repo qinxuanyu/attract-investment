@@ -20,7 +20,7 @@ export default [
         component: () => import( '@/views/serve/info.vue')
     },
     {
-        path: '/garden',  //园区详情
+        path: '/garden/:id',  //园区详情
         name: 'garden',
         component: () => import( '@/views/serve/garden.vue')
     },
