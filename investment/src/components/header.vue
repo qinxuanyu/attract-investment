@@ -12,7 +12,7 @@
       <el-carousel-item v-for="(item,index) in bannerItem" :key="index">
         <!-- <h3>{{ item }}</h3> -->
         <!-- <img :src="'../assets/banner'+ key +'.png'" alt=""> -->
-        <img :src="item" alt="">
+        <img v-lazy="item" alt="">
       </el-carousel-item>
     </el-carousel>
 

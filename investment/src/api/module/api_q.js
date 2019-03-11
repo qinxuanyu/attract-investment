@@ -79,4 +79,12 @@ export default{
             data
         })
     },
+    //招引园区更多列表
+    parkOrProjectList (data){
+        return fetch({
+            url:'/attractServe/parkOrProjectList',
+            method:'get',
+            data
+        })
+    },
 }

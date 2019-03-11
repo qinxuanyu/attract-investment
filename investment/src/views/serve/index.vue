@@ -5,7 +5,7 @@
         <div class="title">
           <span class="name">深圳产业园区招商</span>
           <span class="btn">
-                      <router-link to="/zyfu-zs">更多</router-link>
+                      <router-link to="/zyfu-zs/0">更多</router-link>
                       </span>
         </div>
         <div class="main">
