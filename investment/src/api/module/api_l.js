@@ -120,6 +120,13 @@ export default {
       data
     })
   },
-
+//根据id查找招引服务
+   AttractServeById(data) {
+    return fetch({
+      url: '/attractServe/getAttractServeById',
+      method: 'get',
+      data
+    })
+  },
 
 }
