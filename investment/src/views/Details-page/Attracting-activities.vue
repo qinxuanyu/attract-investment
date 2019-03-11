@@ -11,11 +11,20 @@
       <span class="zy">文章来源 : {{detailsData.articleSource}}</span>
     </div>
     <div class="zz" v-if="detailsData.summary">
-      <div
-        class="zz1"
-      >{{detailsData.summary}}</div>
-
-      <span class="zz2">摘要</span>
+      <div class="zz1">
+         
+         <p>
+            <span class="zz2">摘要</span>
+            {{detailsData.summary}}
+         </p>
+         <p v-if="detailsData.title">峰会主题：{{detailsData.title}}</p>
+        <p v-if="detailsData.time">峰会时间：{{detailsData.time }}</p>
+        <p v-if="detailsData.address">峰会地点：{{detailsData.address}}</p>
+        <p v-if="detailsData.sponsorUnit">主办单位：{{detailsData.sponsorUnit}}</p>
+        <p v-if="detailsData.coOrganizer">协办单位：{{detailsData.coOrganizer }}</p>
+        <p v-if="detailsData.text">峰会内容：{{detailsData.text}}</p>
+        </div>
+     
     </div>
 	<div class="node" v-html="detailsData.content">
 		
@@ -74,12 +83,11 @@ export default {
 }
 
 .zz1 {
-  height: 86px;
   background-color: #f7f7ff;
   margin: 25px 0px;
   text-align: left;
   padding: 10px 40px 14px 40px;
-  text-indent: 57px;
+  /* text-indent: 57px; */
   line-height: 31px;
 }
 
@@ -88,9 +96,9 @@ export default {
   height: 24px;
   background-color: #608faf;
   color: white;
-  position: absolute;
+  /* position: absolute;
   left: 42px;
-  top: 14px;
+  top: 14px; */
   border-radius: 3px;
 }
 </style>

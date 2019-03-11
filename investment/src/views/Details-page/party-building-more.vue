@@ -43,17 +43,9 @@
       <div class="rank">
         <h3 class="title">一周新闻排行榜</h3>
         <ul>
-          <li>
-            上海“2019年优化营商环境、促进经济发展”大会正式举行...
-            <span class="num">210</span>
-          </li>
-          <li>
-            上海“2019年优化营商环境、促进经济发展”大会正式举行...
-            <span class="num">210</span>
-          </li>
-          <li>
-            上海“2019年优化营商环境、促进经济发展”大会正式举行...
-            <span class="num">210</span>
+         <li v-for="(item,index) in rankNewsList" :key="index" @click.stop="$router.push('/Attracting-news/'+item.id)">
+              {{item.title}}
+              <span class="num">{{item.uniqueVisitor}}</span>
           </li>
         </ul>
       </div>
@@ -68,7 +60,7 @@
   import abstractItem from '@/components/abstract-item'
   import tab from '../../components/table.vue'
   import api from '@/api'
-
+  import rankNews from '@/mixins/rankNews'
   export default {
 
     data() {
@@ -91,13 +83,14 @@
       abstractItem,
         tab,
     },
+    mixins:[rankNews],
     methods: {
       //右边新闻
       getNewsListRightFun() {
         api.getBuildingVOList({
           page: this.rigthNews.page,
           size: this.rigthNews.size,
-          type:this.$route.params.id
+          type:this.$route.params.id   //0党建动态1党建学习
         }).then((result) => {
           
           this.rigthNews.total = result.total

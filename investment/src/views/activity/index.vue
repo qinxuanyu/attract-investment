@@ -8,7 +8,7 @@
 			<p>{{summit[0].title || ''}}</p>
 		</router-link>
 		<div class="list">
-			<div class="title">更多</div>
+			<router-link to="/summit" class="title">更多</router-link>
 			<ul class="box">
 				<li 
 					v-for="(item,index) in summit"
@@ -28,7 +28,7 @@
 					v-for="(item,index) in interview[0]"
 					:key="index"
 					>
-						<router-link to="'/Attracting-activities/'+item.id">{{item.title}}</router-link>
+						<router-link :to="'/Attracting-activities/'+item.id">{{item.title}}</router-link>
 				</li>
 			</ul>
 			<ol class="img-wrap">
@@ -71,7 +71,7 @@
     </div>
     <!-- //实地访谈 -->
     <div class="interview">
-		<div class="title">招引访谈</div>
+		<div class="title">实地考察</div>
 		<div class="wrap">
 			<div class="item">
 				<ol class="img-wrap">
@@ -210,6 +210,7 @@ export default {
       padding-left: 30px;
       box-sizing: border-box;
       .title {
+				display: block;
         text-align: right;
         font-size: 18px;
         padding-bottom: 20px;

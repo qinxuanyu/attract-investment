@@ -1,8 +1,5 @@
 <template>
   <div>
-
-   
-
     <div class="top">
       <div class="zflex">
         <h2 style="margin-bottom: 14px;font-size: 20px;font-weight: normal;color:#323232; text-align:center;">第一财经金融峰会</h2>

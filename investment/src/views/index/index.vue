@@ -2,7 +2,9 @@
   <div>
     <div class="zhong">
       <div class="dw">{{wz}}</div>
-      <img :src="currimg.coverImage" alt="" class="yi" :class="{'active':dh}" @click=dj(currimg.id)>
+      <div class="img-box-d">
+        <img :src="currimg.coverImage" alt="" class="yi" :class="{'active':dh}" @click=dj(currimg.id)>
+      </div>
       <div class="er">
 
         <img v-lazy="item.coverImage" alt="" :class="{'active':index==curr}" v-for="(item, index) in AttractingPhoto" :key="index"
@@ -13,7 +15,7 @@
         <div class="li">
           <div class="Journalism">
             <span class="span1">招引新闻</span>
-            <span class="span2">更多</span>
+            <router-link class="span2" to="/news">更多</router-link>
           </div>
           <div class="p" v-for="(item, index) in AttractingNews" :key="index">
             <router-link :to="'/Attracting-news/'+item.id"> {{item.title}} </router-link>
@@ -27,15 +29,17 @@
       <div class="z">
         <div class="Journalism">
           <span class="span1">招商活动</span>
-          <span class="span2">更多</span>
+          <router-link class="span2" to="activity">更多</router-link>
         </div>
         <div class="flex">
-          <div class="lm" v-for="(item, index) in  homeInvestmentActivity" :key="index">
-            <img src="../../assets/activity1.png" alt="">
+          <router-link class="lm activity-item" v-for="(item, index) in  homeInvestmentActivity" :key="index" :to="'/Attracting-activities/'+item.id">
+            <div class="img-box-d">
+              <img v-lazy="item.image" alt="">
+            </div>  
             <h3 class="h5">
-              <router-link to="/Attracting-activities">{{item.title}}</router-link>
+              <p >{{item.title}}</p>
             </h3>
-          </div>
+          </router-link>
 
 
         </div>
@@ -44,7 +48,7 @@
         <div class="yy">
           <div class="Journalism">
             <span class="span1" style="color:#001F84">招引服务</span>
-            <span class="span2">更多</span>
+            <router-link class="span2" to="/serve">更多</router-link>
           </div>
           <div class="p" v-for="(item, index) in homeAttractServe" :key="index">
             <router-link :to="'/Attracting-news/'+item.id">{{item.title}}</router-link>
@@ -59,23 +63,23 @@
       <div class="z">
         <div class="Journalism">
           <span class="span1">建党工作</span>
-          <span class="span2">更多</span>
+          <router-link class="span2" to="/party-building">更多</router-link>
         </div>
         <div class="flex">
           <div class="zf">
             <h3 style="text-align: left;padding-bottom: 5px;">商务局2019年建党工作要点</h3>
             <span class="span" v-for="(item, index) in homePartyBuilding1" :key="index">
-              <router-link to="/Attracting-activities">{{item.title}}</router-link>
+              <router-link :to="'/Attracting-party/'+item.id">{{item.title}}</router-link>
               </span>
 
           </div>
           <div class="yf">
-            <div class="lm" v-for="(item, index) in homePartyBuilding2" :key="index">
+            <router-link class="lm" v-for="(item, index) in homePartyBuilding2" :key="index" :to="'/Attracting-party/'+item.id">
               <img v-lazy="item.coverImage" alt="" style="width:225px;height:139px;">
               <h3 class="h5">
-                <router-link to="path">{{item.title}}</router-link>
+                <p to="path">{{item.title}}</p>
               </h3>
-            </div>
+            </router-link>
           </div>
         </div>
       </div>
@@ -83,10 +87,10 @@
         <div class="yy">
           <div class="Journalism">
             <span class="span1" style="color:#001F84">三圈动态</span>
-            <span class="span2">更多</span>
+            <router-link class="span2" to="/dynamic">更多</router-link>
           </div>
           <div class="p" v-for="(item, index) in homeDynamic" :key="index">
-            <router-link to="/Attracting-activities">{{item.title}}</router-link>
+            <router-link :to="'/Attracting-dynamic/'+item.id">{{item.title}}</router-link>
           </div>
 
         </div>
@@ -183,10 +187,10 @@
       getInvestmentActivity() {
         api.homeInvestmentActivity({
           page: 0,
-          size: 10,
+          size: 6,
         }).then(res => {
           this.homeInvestmentActivity = res
-          // console.log(res);
+          console.log(res);
         }, error => {})
       },
       //获得招引服务
@@ -238,13 +242,14 @@
       this.getInvestmentActivity()
       this.getAttractServe()
       this.getPartyBuilding()
-      this.getDynamic()
+      this.getDynamic();
+      
     }
 
   }
 
 </script>
-<style scoped>
+<style scoped lang="less">
   * {
     padding: 0;
     margin: 0;
@@ -259,12 +264,21 @@
     position: relative;
     left: 0;
     top: 0;
+    .img-box-d{
+       width: 450px !important;
+      .yi {
+        transition: 500ms;
+      }
+    }
   }
-
-  .yi {
-    width: 450px !important;
-    transition: 500ms;
+  .activity-item{
+    .img-box-d{
+      width: 225px;
+      height: 140px;
+    }
+    
   }
+  
 
   .er {
     flex: 1;
@@ -461,7 +475,7 @@
   }
 
   a:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 
 </style>

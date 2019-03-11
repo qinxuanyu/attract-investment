@@ -48,7 +48,7 @@ export default [{
   },
   {
     //招引服务-更多-详情
-    path: '/zyfu-index',
+    path: '/zyfu-index/:id',
     name: 'zyfu-index',
     component: () =>
       import ('@/views/Attracting-service-details/index')

@@ -5,8 +5,25 @@ import Lrouter from './module/router_l'
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
 	mode: 'history',
 	base: process.env.BASE_URL,
-	routes: [...Qroute,...Lrouter]
+	routes: [...Qroute, ...Lrouter],
+	scrollBehavior(to, from, savedPosition) {
+		if (savedPosition) {
+			return savedPosition
+		} else {
+			return { x: 0, y: 700 }
+		}
+	}
 })
+router.beforeEach((to, from, next) => {
+	if (/^\/http/.test(to.path) || /^\/https/.test(to.path)) {
+		window.location.href = to.path;
+		// console.log(to.path)
+		return;
+	};
+	next()
+})
+
+export default router

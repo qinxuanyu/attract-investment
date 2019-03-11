@@ -32,12 +32,19 @@
     methods: {
       getAttractNewsByIdFun() {
         api.getAttractNewsById({
-          id: this.$route.params.id
+          id: this.id,
         }).then(res => {
           this.detailsData = res;
         }, err => {
 
         })
+      },
+      saveNewsFun (){
+        api.saveNews(this.id).then((result) => {
+           
+        }).catch((err) => {
+          
+        });
       }
 
     },
@@ -46,8 +53,9 @@
 
     },
     created() {
-
-      this.getAttractNewsByIdFun()
+      this.id = this.$route.params.id;
+      this.getAttractNewsByIdFun();
+      this.saveNewsFun()
 
     }
   }

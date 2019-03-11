@@ -1,10 +1,10 @@
 <template>
   <header id="header">
     <div class="logo">
-      <img src="http://www.jituwang.com/uploads/allimg/151208/258057-15120R3593535.jpg" alt="">
+      <img src="../assets/logo.png" alt="">
       <div class="text">
-        <p class="name">校友会招商引资服务平台</p>
-        <p class="en">xiaoyouhuizhaoshangyinzifuwupingtai</p>
+        <p class="name">大湾区招引服务平台</p>
+        <!-- <p class="en">xiaoyouhuizhaoshangyinzifuwupingtai</p> -->
       </div>
     </div>
 
@@ -12,7 +12,7 @@
       <el-carousel-item v-for="(item,index) in bannerItem" :key="index">
         <!-- <h3>{{ item }}</h3> -->
         <!-- <img :src="'../assets/banner'+ key +'.png'" alt=""> -->
-        <img v-lazy="item" alt="">
+        <img :src="item.image" alt="">
       </el-carousel-item>
     </el-carousel>
 
@@ -24,7 +24,7 @@
         <el-tab-pane label="招引服务" name="fourth"></el-tab-pane>
         <el-tab-pane label="三圈动态" name="dynamic"></el-tab-pane>
         <el-tab-pane label="党建工作" name="six"></el-tab-pane>
-        <el-tab-pane label="联系我们" name="seven"></el-tab-pane>
+        <el-tab-pane label="联系我们" name="about"></el-tab-pane>
       </el-tabs>
     </div>
     <d-title></d-title>
@@ -40,7 +40,8 @@
     data() {
       return {
         bannerItem: [],
-        activeName: 'first'
+        activeName: 'first',
+        path:'/'
       }
     },
 
@@ -63,6 +64,8 @@
           this.$router.push('/news')
         } else if (tab.name === 'dynamic') {
           this.$router.push('/dynamic')
+        }else if(tab.name === 'about'){
+          this.$router.push('/about')
         }
 
       },
@@ -70,16 +73,22 @@
       //获取轮播图
       getpooto() {
         api.getAttractphoto().then(res => {
-          res.forEach(item => {
-            if (item.type == 0) {
-              this.bannerItem.push(item.image)
-            }
-          })
+			console.log(res)
+          this.bannerItem = res;
         }, err => {})
 
 
       }
     },
+    computed:{
+      returnPath (){
+        console.log(this.$route)
+      }
+    },
+    
+	created (){
+		this.getpooto()
+	}
   }
 
 </script>
@@ -90,6 +99,7 @@
       margin: 0 auto;
       padding: 10px 0 17px 0;
       display: flex;
+      align-items: center;
       >img {
         width: 73px;
         height: 73px;
@@ -101,7 +111,8 @@
         text-align: left;
         .name {
           font-size: 32px;
-          color: #00238c;
+          color: #ec1b24;
+          margin-left: 10px;
         }
         .en {
           font-size: 21px;

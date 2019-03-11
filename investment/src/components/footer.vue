@@ -3,8 +3,8 @@
         <div class="wrap">
             <ul class="site">
                 <li class="left">
-                    <img src="http://www.jituwang.com/uploads/allimg/151208/258057-15120R3593535.jpg" alt="">
-                    <div class="name">校友汇招商引资服务平台</div>
+                    <img src="../assets/logo.png" alt="">
+                    <div class="name">大湾区招引服务平台</div>
                 </li>
                 <li class="middle">
                     <div class="item">

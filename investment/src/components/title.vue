@@ -1,17 +1,36 @@
 <template>
 
-  <div class="title-comp">
-    <img src="../assets/trumpet.png" alt="" class="float-left clearfix"> {{title || '2019年我盟As的阿打算都是该款新车注册，共同促进大城市发展!'}}
+  <div class="title-comp" >
+    <img src="../assets/trumpet.png" alt="" class="float-left clearfix"> {{content[0].content || ''}}
   </div>
 
 </template>
 <script>
+  import api from '@/api'
   export default {
-    props: ['title'],
+    // props: ['title'],
     data() {
       return {
-
+        content:[{
+          content:''
+        }]
       }
+    },
+    methods:{
+      getNotice (){
+        api.notice({
+          type:0
+        }).then((result) => {
+            if(result.length){
+              this.content = result;
+            }
+        }).catch((err) => {
+          
+        });
+      }
+    },
+    created (){
+      this.getNotice()
     }
   }
 

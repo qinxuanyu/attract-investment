@@ -87,4 +87,27 @@ export default{
             data
         })
     },
+    //一周新闻排行榜
+    getInstantNews (data){
+        return fetch({
+            url:'/home/getInstantNews',
+            method:'get',
+            data
+        })
+    },
+    //一周新闻排行榜
+    saveNews (data){
+        return fetch({
+            url:'/home/saveNews?id=' + data,
+            method:'post',
+        })
+    },
+    //峰会列表
+    summitList (data){
+        return fetch({
+            url:'/investmentActivity/summitList',
+            method:'get',
+            data
+        })
+    },
 }

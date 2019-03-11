@@ -16,7 +16,7 @@
                 <h3 class="title">园区概况</h3>
                 <p v-html="detailsData.parkContent">
                 </p>
-                <router-link class="btn" to="">查看详情>></router-link>
+                <router-link class="btn" :to="'/zyfu-index/' + id">查看详情>></router-link>
             </div>
         </div>
         <div class="facility">
@@ -28,7 +28,7 @@
                 <p v-html="detailsData.regionalContent">
                     
                 </p>
-                <el-button plain type="danger">查看详情</el-button>
+                <el-button plain type="danger" @click.native.stop="'/zyfu-index/' + id">查看详情</el-button>
             </div>
              <div class="item cleafix">
                 <el-button type="primary">地理交通</el-button>
@@ -39,7 +39,7 @@
                    
                     
                 </p>
-                <el-button plain type="danger">查看详情</el-button>
+                <el-button plain type="danger" @click.native.stop="'/zyfu-index/' + id">查看详情</el-button>
             </div>
              <div class="item cleafix">
                 <el-button type="primary">配套设施</el-button>
@@ -49,7 +49,7 @@
                 <p v-html="detailsData.matchingContent">
                     
                 </p>
-                <el-button plain type="danger">查看详情</el-button>
+                <el-button plain type="danger" @click.native.stop="'/zyfu-index/' + id">查看详情</el-button>
             </div>
             
         </div>
@@ -123,7 +123,7 @@
                 <p v-html="detailsData.enterpriseContent">
                     
                 </p>
-                <el-button plain type="danger">查看详情</el-button>
+                <el-button plain type="danger" @click.native.stop="'/zyfu-index/' + id">查看详情</el-button>
             </div>
             <div class="item">
                 <h3 class="title">文化产业</h3>
@@ -133,7 +133,7 @@
                 <p v-html="detailsData.cultureContent">
                     
                 </p>
-                <el-button plain type="danger">查看详情</el-button>
+                <el-button plain type="danger" @click.native.stop="'/zyfu-index/' + id">查看详情</el-button>
             </div>
         </div>
         <div class="recommend">

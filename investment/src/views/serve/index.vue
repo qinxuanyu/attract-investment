@@ -10,7 +10,7 @@
         </div>
         <div class="main">
           <ul>
-            <li v-for="(item, index) in ServeList.IndustrialPark">
+            <li v-for="(item, index) in ServeList.IndustrialPark" :key="index" @click.stop="$router.push('/garden/'+item.id)">
               <div class="img-box-d">
                 <img :src="item.coverImage" alt="">
               </div>
@@ -23,10 +23,10 @@
       <div class="blue">
         <div class="title">
           <span class="name">服务资讯</span>
-          <span class="btn">更多</span>
+          <router-link class="btn" to="/serve_info">更多</router-link>
         </div>
         <ul class="list">
-          <li v-for="(item, index) in ServeList.ConsultingList" :key="index" >{{item.title}}</li>
+          <li v-for="(item, index) in ServeList.ConsultingList" :key="index" @click.stop="$router.push('/zyfu-index/' + item.id)">{{item.title}}</li>
 
         </ul>
       </div>
@@ -51,10 +51,10 @@
       <div class="blue">
         <div class="title">
           <span class="name">最新投资项目</span>
-          <span class="btn">更多</span>
+          <router-link to="/zyfu-zs/1">更多</router-link>
         </div>
         <ul class="list">
-          <li v-for="(item, index) in ServeList.ServiceConsultation">{{item.title}}</li>
+          <li v-for="(item, index) in ServeList.ServiceConsultation" @click.stop="$router.push('/zyfu-index/' + item.id)" :key="index">{{item.title}}</li>
         </ul>
 
       </div>
@@ -108,7 +108,7 @@
           page: 0,
           size: 10,
         }).then(res => {
-          this.ServeList.ConsultingList=res.list
+          this.ServeList.ConsultingList = res.list
         }, err => {
 
         })

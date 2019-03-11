@@ -146,6 +146,8 @@
             width: 147px;
             float: left;
             cursor: pointer;
+            margin-right: 8px;
+            overflow: hidden;
             .img-box-d {
               width: 147px;
               height: 110px;
@@ -154,8 +156,12 @@
               font-size: 14px;
               line-height: 24px;
               color: #565656;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
             }
           }
+          
         }
         .rank {
           .title {

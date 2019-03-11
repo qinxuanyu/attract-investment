@@ -44,4 +44,10 @@ export default [
         name: 'attractingD',
         component: () => import( '@/views/Details-page/Attracting-party.vue')
     },
+    //招商峰会列表
+    {
+        path: '/summit',  
+        name: 'summit',
+        component: () => import( '@/views/news/summit.vue')
+    },
 ]

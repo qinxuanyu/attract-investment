@@ -28,18 +28,11 @@
             <div class="rank">
                 <h3 class="title">一周新闻排行榜</h3>
                 <ul>
-                    <li>
-                        上海“2019年优化营商环境、促进经济发展”大会正式举行...
-                        <span class="num">210</span>
+                    <li v-for="(item,index) in rankNewsList" :key="index" @click.stop="$router.push('/Attracting-news/'+item.id)">
+                        {{item.title}}
+                        <span class="num">{{item.uniqueVisitor}}</span>
                     </li>
-                    <li>
-                        上海“2019年优化营商环境、促进经济发展”大会正式举行...
-                        <span class="num">210</span>
-                    </li>
-                    <li>
-                        上海“2019年优化营商环境、促进经济发展”大会正式举行...
-                        <span class="num">210</span>
-                    </li>
+                   
                 </ul>
             </div>
         </div>
@@ -67,6 +60,7 @@
 <script>
     import abstractItem from '@/components/abstract-item'
     import api from '@/api'
+    import rankNews from '@/mixins/rankNews'
     export default {
         data(){
             return{
@@ -85,6 +79,7 @@
         components:{
             abstractItem
         },
+        mixins:[rankNews],
         methods:{
             //右边新闻
             getNewsListRightFun (){
