@@ -17,7 +17,7 @@
     </el-carousel>
 
     <div class="tabs">
-      <el-tabs v-model="activeName" @tab-click="handleClick">
+      <el-tabs v-model="active" @tab-click="handleClick">
         <el-tab-pane label="首页" name="first"></el-tab-pane>
         <el-tab-pane label="招引新闻" name="news"></el-tab-pane>
         <el-tab-pane label="招商活动" name="third"></el-tab-pane>
@@ -40,8 +40,8 @@
     data() {
       return {
         bannerItem: [],
-        activeName: 'first',
-        path:'/'
+        path: '/',
+        active:'first'
       }
     },
 
@@ -52,6 +52,7 @@
 
     methods: {
       handleClick(tab) {
+        localStorage.setItem('lj',tab.name) 
         if (tab.name == 'first') {
           this.$router.push('/')
         } else if (tab.name == 'third') {
@@ -64,7 +65,7 @@
           this.$router.push('/news')
         } else if (tab.name === 'dynamic') {
           this.$router.push('/dynamic')
-        }else if(tab.name === 'about'){
+        } else if (tab.name === 'about') {
           this.$router.push('/about')
         }
 
@@ -73,22 +74,29 @@
       //获取轮播图
       getpooto() {
         api.getAttractphoto().then(res => {
-			console.log(res)
+          console.log(res)
           this.bannerItem = res;
         }, err => {})
-
-
       }
     },
-    computed:{
-      returnPath (){
+
+    computed: {
+      returnPath() {
         console.log(this.$route)
+      },
+   
+    },
+    watch: {
+      '$route.path' (newVal,oldVal){
+         
       }
     },
-    
-	created (){
-		this.getpooto()
-	}
+    created() {
+      this.getpooto()
+       if(localStorage.getItem('lj')){
+         this.active=localStorage.getItem('lj')
+       }
+    }
   }
 
 </script>
@@ -120,15 +128,15 @@
         }
       }
     }
-    .carousel{
+    .carousel {
       min-width: 1200px;
-      .img-box-d{
+      .img-box-d {
         width: 100%;
         min-width: 1200px;
         height: 600px;
       }
-      
-      .el-carousel__container{
+
+      .el-carousel__container {
         // width: 1200px;
       }
     }
