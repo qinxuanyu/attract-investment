@@ -8,7 +8,7 @@
 			:key="index"
 			:title="item.title"
 			:content="item.summary"
-			@click.native.stop="$router.push('')"
+			@click.native.stop="$router.push('/info-details/' + item.id)"
 		></abstract-item>
         <el-pagination background layout="prev, pager, next" @current-change="pageChange" :total="total">
         </el-pagination>
@@ -102,7 +102,7 @@
 		data() {
 			return {
 				yi: '招引服务',
-				er: '深圳产业园招商',
+				er: '服务资讯',
 				leftNews: {
 					0: [],
 					1: [],

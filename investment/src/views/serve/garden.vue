@@ -28,7 +28,7 @@
                 <p v-html="detailsData.regionalContent">
                     
                 </p>
-                <el-button plain type="danger" @click.native.stop="'/zyfu-index/' + id">查看详情</el-button>
+                <el-button plain type="danger" @click.native.stop="$router.push('/zyfu-index/' + id)">查看详情</el-button>
             </div>
              <div class="item cleafix">
                 <el-button type="primary">地理交通</el-button>
@@ -39,7 +39,7 @@
                    
                     
                 </p>
-                <el-button plain type="danger" @click.native.stop="'/zyfu-index/' + id">查看详情</el-button>
+                <el-button plain type="danger" @click.native.stop="$router.push('/zyfu-index/' + id)">查看详情</el-button>
             </div>
              <div class="item cleafix">
                 <el-button type="primary">配套设施</el-button>
@@ -49,69 +49,24 @@
                 <p v-html="detailsData.matchingContent">
                     
                 </p>
-                <el-button plain type="danger" @click.native.stop="'/zyfu-index/' + id">查看详情</el-button>
+                <el-button plain type="danger" @click.native.stop="$router.push('/zyfu-index/' + id)">查看详情</el-button>
             </div>
             
         </div>
         <div class="swiper">
             <h3 class="title">园区概览</h3>
             <el-carousel :interval="5000" arrow="always" height="240px">
-                <el-carousel-item >
+                <el-carousel-item v-for="(item,index) in swiperItem" :key="index">
                     <div class="swiper-wrap">
-                        <div class="box">
+                        <div class="box" v-for="(info,i) in item" :key="i">
                             <div class="img-box-d">
-                                <img src="../../assets/activity1.png" alt="">
+                                <img :src="info" alt="">
                             </div>
-                            <p>深圳198设计创意园</p>
                         </div>
-                        <div class="box">
-                            <div class="img-box-d">
-                                <img src="../../assets/activity2.png" alt="">
-                            </div>
-                            <p>深圳198设计创意园</p>
-                        </div>
-                        <div class="box">
-                            <div class="img-box-d">
-                                <img src="../../assets/activity3.png" alt="">
-                            </div>
-                            <p>深圳198设计创意园</p>
-                        </div>
-                        <div class="box">
-                            <div class="img-box-d">
-                                <img src="../../assets/activity4.png" alt="">
-                            </div>
-                            <p>深圳198设计创意园</p>
-                        </div>
+                       
                     </div>
                 </el-carousel-item>
-                <el-carousel-item >
-                    <div class="swiper-wrap">
-                        <div class="box">
-                            <div class="img-box-d">
-                                <img src="../../assets/activity1.png" alt="">
-                            </div>
-                            <p>深圳198设计创意园</p>
-                        </div>
-                        <div class="box">
-                            <div class="img-box-d">
-                                <img src="../../assets/activity2.png" alt="">
-                            </div>
-                            <p>深圳198设计创意园</p>
-                        </div>
-                        <div class="box">
-                            <div class="img-box-d">
-                                <img src="../../assets/activity3.png" alt="">
-                            </div>
-                            <p>深圳198设计创意园</p>
-                        </div>
-                        <div class="box">
-                            <div class="img-box-d">
-                                <img src="../../assets/activity4.png" alt="">
-                            </div>
-                            <p>深圳198设计创意园</p>
-                        </div>
-                    </div>
-                </el-carousel-item>
+               
             </el-carousel>
         </div>
         <div class="enterprise">
@@ -123,7 +78,7 @@
                 <p v-html="detailsData.enterpriseContent">
                     
                 </p>
-                <el-button plain type="danger" @click.native.stop="'/zyfu-index/' + id">查看详情</el-button>
+                <el-button plain type="danger" @click.native.stop="$router.push('/zyfu-index/' + id)">查看详情</el-button>
             </div>
             <div class="item">
                 <h3 class="title">文化产业</h3>
@@ -133,7 +88,7 @@
                 <p v-html="detailsData.cultureContent">
                     
                 </p>
-                <el-button plain type="danger" @click.native.stop="'/zyfu-index/' + id">查看详情</el-button>
+                <el-button plain type="danger" @click.native.stop="$router.push('/zyfu-index/' + id)">查看详情</el-button>
             </div>
         </div>
         <div class="recommend">
@@ -143,7 +98,7 @@
                     v-for="(item,index) in projectList"
                     :key="index"
                 >
-                    <router-link to="">
+                    <router-link :to="'/garden/'+item.id">
                         <div class="img-box-d">
                             <img v-lazy="item.coverImage" alt="">
                         </div>
@@ -161,7 +116,8 @@
             return{
                 id:null,
                 detailsData:{},
-                projectList:[]
+                projectList:[],
+                swiperItem:[]
             }
         },
         methods:{
@@ -172,6 +128,18 @@
 
                 }).then((result) => {
                     this.detailsData = result;
+                    if(result.parkSurvey){
+                        let imgArr = result.parkSurvey.split(',');
+                        for(let i = 0; i < imgArr.length; i++){
+                            let index = Math.floor(i/4);
+                            if(!this.swiperItem[index]){
+                                this.swiperItem[index] = [];
+                                this.swiperItem[index].push(imgArr[index])
+                            }else{
+                                this.swiperItem[index].push(imgArr[index])
+                            }
+                        }
+                    }
                 }).catch((err) => {
                     
                 });
@@ -335,6 +303,7 @@
                     .img-box-d{
                         width: 220px;
                         height: 190px;
+                        // margin-right: ;
                     }
                     p{
                         margin-top: 10px !important;

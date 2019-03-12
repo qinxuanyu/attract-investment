@@ -38,7 +38,7 @@
         </div>
         <div class="right">
             <ul>
-                <li>
+                <li >
                    <abstract-item
                         v-for="(item,index) in rigthNews.list"
                         :key="index"
@@ -175,9 +175,11 @@
                 }
                 li{
                     cursor: pointer;
+                    width: 100%;
                     list-style-type: disc;
                     font-size: 16px;
                     line-height: 24px;
+                    float: left;
                     span{
                         padding-left: 20px;
                         // text-align: right;

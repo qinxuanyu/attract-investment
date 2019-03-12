@@ -50,4 +50,10 @@ export default [
         name: 'summit',
         component: () => import( '@/views/news/summit.vue')
     },
+    //服务资讯详情
+    {
+        path: '/info-details/:id',  
+        name: 'infoDetails',
+        component: () => import( '@/views/serve/info-details.vue')
+    },
 ]

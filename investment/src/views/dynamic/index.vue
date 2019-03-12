@@ -1,6 +1,6 @@
 <template>
   <div class="serve-info">
-    <tab :yi="yi" :er="er"></tab>
+    <!-- <tab :yi="yi" :er="er"></tab> -->
     <div class="main">
       <div class="info-list">
         <abstract-item
@@ -19,29 +19,35 @@
         </el-pagination>
       </div>
       <div class="news-list">
-        <div class="img clearfix">
+        <div class="img">
           <h3 class="title">图片新闻</h3>
-			<router-link 
-				class="item" 
-				v-for="(item,index) in right[1]" 
-				:key="index"
-				:to="'/Attracting-dynamic/'+item.id"
-				>
-					<div class="img-box-d">
-					<img :src="item.coverImage" alt="">
-					</div>
-				<p>{{item.title}}</p>
-			</router-link>
+          <div class="item-wrap">
+            <router-link 
+              class="item" 
+              v-for="(item,index) in right[1]" 
+              :key="index"
+              :to="'/Attracting-dynamic/'+item.id"
+              >
+                <div class="img-box-d">
+                <img :src="item.coverImage" alt="">
+                </div>
+              <p>{{item.title}}</p>
+            </router-link>
+          </div>
+			
           
         </div>
         <div class="img clearfix">
           <h3 class="title">视频新闻</h3>
-			<router-link class="item" v-for="(item,index) in right[2]" :key="index" :to="'/Attracting-dynamic/'+item.id">
-				<div class="img-box-d">
-					<img :src="item.coverImage" alt="">
-				</div>
-				<p>{{item.title}}</p>
-			</router-link>
+          <div class="item-wrap">
+            <router-link class="item" v-for="(item,index) in right[2]" :key="index" :to="'/Attracting-dynamic/'+item.id">
+            <div class="img-box-d">
+              <img :src="item.coverImage" alt="">
+            </div>
+            <p>{{item.title}}</p>
+          </router-link>
+          </div>
+          
          
         </div>
        
@@ -124,10 +130,11 @@
         box-sizing: border-box;
       }
       .news-list {
-        width: 310px;
+        width: 330px;
         padding-left: 18px;
         text-align: left;
         line-height: 28px;
+        box-sizing: border-box;
         .title {
           font-size: 20px;
           margin: 40px 0 28px 0;
@@ -141,12 +148,16 @@
           }
         }
         .img {
-			width: 100%;
+      width: 100%;
+          .item-wrap{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+          }
           .item {
             width: 147px;
-            float: left;
             cursor: pointer;
-            margin-right: 8px;
+            // margin-right: 8px;
             overflow: hidden;
             .img-box-d {
               width: 147px;

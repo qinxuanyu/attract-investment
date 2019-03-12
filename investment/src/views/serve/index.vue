@@ -26,7 +26,7 @@
           <router-link class="btn" to="/serve_info">更多</router-link>
         </div>
         <ul class="list">
-          <li v-for="(item, index) in ServeList.ConsultingList" :key="index" @click.stop="$router.push('/zyfu-index/' + item.id)">{{item.title}}</li>
+          <li v-for="(item, index) in ServeList.ConsultingList" :key="index" @click.stop="$router.push('/info-details/' + item.id)">{{item.title}}</li>
 
         </ul>
       </div>

@@ -4,7 +4,7 @@
     <div class="flex">
       <div class="tx" v-for="(item, index) in listData" :key="index">
         <div class="zt">
-          <router-link :to="type == 0 ? '/zyfu-index' :'/garden/' + item.id">
+          <router-link :to="type == 0 ?  '/garden/' + item.id: '/zyfu-index/' +item.id">
             <div class="img-box-d">
               <img v-lazy="item.coverImage " alt>
             </div>
