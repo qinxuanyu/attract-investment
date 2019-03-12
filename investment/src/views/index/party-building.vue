@@ -89,7 +89,7 @@
             type: type //0党建动态1党建学习
           })
           .then(result => {
-            console.log(result)
+            // console.log(result)
             if (type === 0) {
               this.dynamic = result;
             } else if (type === 1) {

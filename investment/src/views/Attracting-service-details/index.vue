@@ -1,7 +1,7 @@
 <template>
   <div class="zw">
     <tab :yi="yi" :er="er" :san="san"></tab>
-    <img :src="this.listContent.coverImage" alt="" style="margin-top: 22px;">
+    <img :src="this.listContent.coverImage" alt="" style="margin-top: 22px;width: 1200px;height: 440px;">
     <div class="tx">
       <div class="er" v-for="(item, index) in list" :class="{'active':index==cu}" ref="ss" @click="change(index)">{{item}}</div>
     </div>

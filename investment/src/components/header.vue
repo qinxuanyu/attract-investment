@@ -8,11 +8,11 @@
       </div>
     </div>
 
-    <el-carousel indicator-position="outside" height="600px">
+    <el-carousel indicator-position="outside" height="31.25vw">
       <el-carousel-item v-for="(item,index) in bannerItem" :key="index">
         <!-- <h3>{{ item }}</h3> -->
         <!-- <img :src="'../assets/banner'+ key +'.png'" alt=""> -->
-        <img :src="item.image" alt="">
+        <img :src="item.image" alt="" class="lunbo">
       </el-carousel-item>
     </el-carousel>
 
@@ -41,7 +41,7 @@
       return {
         bannerItem: [],
         path: '/',
-        active:'first'
+        active: 'first'
       }
     },
 
@@ -52,7 +52,7 @@
 
     methods: {
       handleClick(tab) {
-        localStorage.setItem('lj',tab.name) 
+        localStorage.setItem('lj', tab.name)
         if (tab.name == 'first') {
           this.$router.push('/')
         } else if (tab.name == 'third') {
@@ -84,24 +84,27 @@
       returnPath() {
         console.log(this.$route)
       },
-   
+
     },
     watch: {
-      '$route.path' (newVal,oldVal){
-         
+      '$route.path' (newVal, oldVal) {
+
       }
     },
     created() {
       this.getpooto()
-       if(localStorage.getItem('lj')){
-         this.active=localStorage.getItem('lj')
-       }
+      if (localStorage.getItem('lj')) {
+        this.active = localStorage.getItem('lj')
+      }
     }
   }
 
 </script>
 <style lang="less">
   #header {
+    .lunbo {
+      width: 100vw;
+    }
     .logo {
       width: 1200px;
       margin: 0 auto;

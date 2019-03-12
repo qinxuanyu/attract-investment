@@ -190,7 +190,7 @@
           size: 6,
         }).then(res => {
           this.homeInvestmentActivity = res
-          console.log(res);
+          // console.log(res);
         }, error => {})
       },
       //获得招引服务

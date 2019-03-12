@@ -117,7 +117,7 @@
       }
     },
     created() {
-console.log(this.$route.params.id);
+// console.log(this.$route.params.id);
       this.getNewsListRightFun();
       this.getNewsListLeftFun(0);
       this.getNewsListLeftFun(1)
