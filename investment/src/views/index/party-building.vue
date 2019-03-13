@@ -71,7 +71,7 @@
           coverImage:''
         }], //党建动态列表
         study: [], //党建学习列表
-        activeName: 1,
+        activeName: 0,
 
       };
     },
@@ -201,6 +201,15 @@
       .ffz {
         font-size: 18px;
         line-height: 34px;
+      }
+    }
+    .san{
+      .el-collapse-item__header{
+        height: auto;
+        line-height: 34px;
+      }
+      .el-collapse-item__content{
+        padding-bottom: 0;
       }
     }
     .el-collapse {

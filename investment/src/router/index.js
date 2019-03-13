@@ -6,7 +6,6 @@ import Lrouter from './module/router_l'
 Vue.use(Router)
 
 let router = new Router({
-	mode: 'history',
 	base: process.env.BASE_URL,
 	routes: [...Qroute, ...Lrouter],
 	scrollBehavior(to, from, savedPosition) {

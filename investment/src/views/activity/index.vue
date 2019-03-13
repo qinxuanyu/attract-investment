@@ -51,7 +51,7 @@
     </div>
     <!-- //实地访谈 -->
     <div class="interview">
-      <div class="title">实地访谈</div>
+      <div class="title">实地考察</div>
       <div class="wrap">
         <div class="item">
           <ol class="img-wrap">

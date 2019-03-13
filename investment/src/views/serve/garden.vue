@@ -6,11 +6,11 @@
             <el-breadcrumb-item>深圳产业园</el-breadcrumb-item>
         </el-breadcrumb>
         <div class="big-img img-box-d">
-            <img v-lazy="detailsData.coverImage" alt="">
+            <img :src="detailsData.coverImage" alt="">
         </div>
         <div class="details">
             <div class="img-box-d">
-                <img v-lazy="detailsData.parkCoverImage" alt="">
+                <img :src="detailsData.parkCoverImage" alt="">
             </div>
             <div class="text">
                 <h3 class="title">园区概况</h3>
@@ -33,7 +33,7 @@
              <div class="item cleafix">
                 <el-button type="primary">地理交通</el-button>
                 <div class="img-box-d">
-                    <img v-lazy="detailsData.geographyCoverImage" alt="">
+                    <img :src="detailsData.geographyCoverImage" alt="">
                 </div>
                 <p v-html="detailsData.geographyContent">
                    
@@ -44,7 +44,7 @@
              <div class="item cleafix">
                 <el-button type="primary">配套设施</el-button>
                 <div class="img-box-d">
-                    <img v-lazy="detailsData.matchingCoverImage" alt="">
+                    <img :src="detailsData.matchingCoverImage" alt="">
                 </div>
                 <p v-html="detailsData.matchingContent">
                     
@@ -73,7 +73,7 @@
             <div class="item">
                 <h3 class="title">入驻企业代表</h3>
                 <div class="img-box-d">
-                    <img v-lazy="detailsData.enterpriseCoverImage" alt="">
+                    <img :src="detailsData.enterpriseCoverImage" alt="">
                 </div>
                 <p v-html="detailsData.enterpriseContent">
                     
@@ -83,7 +83,7 @@
             <div class="item">
                 <h3 class="title">文化产业</h3>
                 <div class="img-box-d">
-                    <img v-lazy="detailsData.cultureCoverImage" alt="">
+                    <img :src="detailsData.cultureCoverImage" alt="">
                 </div>
                 <p v-html="detailsData.cultureContent">
                     
@@ -100,7 +100,7 @@
                 >
                     <router-link :to="'/garden/'+item.id">
                         <div class="img-box-d">
-                            <img v-lazy="item.coverImage" alt="">
+                            <img :src="item.coverImage" alt="">
                         </div>
                         <p>{{item.title}}</p>
                     </router-link>
@@ -128,6 +128,7 @@
 
                 }).then((result) => {
                     this.detailsData = result;
+                    this.swiperItem = []
                     if(result.parkSurvey){
                         let imgArr = result.parkSurvey.split(',');
                         for(let i = 0; i < imgArr.length; i++){
@@ -156,13 +157,25 @@
                 }).catch((err) => {
                     
                 });
-            }
+            },
+            
         },
         created (){
             this.id = this.$route.params.id;
             this.getAttractServeByIdFun();
             this.getParkOrProjectList()
-        }
+        },
+        beforeRouteUpdate (to, from, next) {
+            next((vm)=>{
+               
+            })
+
+            this.id = this.$route.params.id;
+            console.log(this.id)
+            this.getAttractServeByIdFun();
+            this.getParkOrProjectList()
+            
+        },
     }
 </script>
 <style lang="less" >

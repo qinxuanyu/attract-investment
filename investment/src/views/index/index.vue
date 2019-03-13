@@ -62,7 +62,7 @@
     <div class="xia">
       <div class="z">
         <div class="Journalism">
-          <span class="span1">建党工作</span>
+          <span class="span1">党建工作</span>
           <router-link class="span2" to="/party-building">更多</router-link>
         </div>
         <div class="flex">
@@ -346,8 +346,9 @@
   .p {
     font-size: 17px;
     color: #2D2D2D;
-    line-height: 28px;
-    margin: 10px 0;
+    // line-height: 28px;
+    // margin: 10px 0;
+    line-height: 34px;
   }
 
 
@@ -457,9 +458,9 @@
     z-index: 999;
   }
 
-  .li .p:nth-child(2) {
-    margin: 20px 0 10px 0;
-  }
+  // .li .p:nth-child(2) {
+  //   margin: 20px 0 10px 0;
+  // }
 
   .li .p:nth-child(3) a {
     font-size: 15px;
