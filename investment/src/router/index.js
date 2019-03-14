@@ -18,7 +18,8 @@ let router = new Router({
 })
 router.beforeEach((to, from, next) => {
 	if (/^\/http/.test(to.path) || /^\/https/.test(to.path)) {
-		window.location.href = to.path;
+		// console.log(to.path)
+		window.location.href = to.path.substr(1);
 		// console.log(to.path)
 		return;
 	};

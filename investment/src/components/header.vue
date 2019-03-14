@@ -9,7 +9,7 @@
     </div>
 
     <el-carousel indicator-position="outside" height="31.25vw">
-      <el-carousel-item v-for="(item,index) in bannerItem" :key="index">
+      <el-carousel-item v-for="(item,index) in bannerItem" :key="index" @click.native.stop="$router.push(item.content)">
         <!-- <h3>{{ item }}</h3> -->
         <!-- <img :src="'../assets/banner'+ key +'.png'" alt=""> -->
         <img :src="item.image" alt="" class="lunbo">
